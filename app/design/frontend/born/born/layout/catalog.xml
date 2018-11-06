@@ -299,23 +299,18 @@ Compare products page
         </reference>
         <reference name="content">
             <block type="born_package/catalog_product_view" name="product.info" template="catalog/product/view.phtml">
-              
                 <action method="addReviewSummaryTemplate"><type>default</type><template>review/helper/summary.phtml</template></action>
                 <action method="addReviewSummaryTemplate"><type>short</type><template>review/helper/summary_short.phtml</template></action>
                 <action method="addReviewSummaryTemplate"><type>review/product_view_list</type><template>review/product/view/list.phtml</template></action>
-               
-
-<block type="review/product_view_list" name="product.info.product_additional_data" as="product_review" template="review/product/view/list.phtml">
-<block type="review/form" name="product.review.form" as="review_form"/></block>
+                <block type="review/product_view_list" name="product.info.product_additional_data" as="product_review" template="review/product/view/list.phtml">
+                <block type="review/form" name="product.review.form" as="review_form"/></block>
                 <block type="born_package/catalog_product_view_media" name="product.info.media" as="media" template="catalog/product/view/media.phtml">
                     <block type="core/text_list" name="product.info.media.after" as="after" />
                 </block>
                 <block type="core/text_list" name="alert.urls" as="alert_urls" translate="label">
                     <label>Alert Urls</label>
                 </block>
-
                 <action method="setTierPriceTemplate"><template>catalog/product/view/tierprices.phtml</template></action>
-
                 <block type="catalog/product_list_upsell" name="product.info.upsell" as="upsell_products" template="catalog/product/list/upsell.phtml">
                     <action method="setColumnCount"><columns>6</columns></action>
                     <action method="setItemLimit"><type>upsell</type><limit>6</limit></action>
@@ -424,13 +419,6 @@ Additional block dependant on product type
                 </block>
             </block>
             <block type="catalog/product_view_type_configurable" name="product.info.availability" as="product_type_availability" template="catalog/product/view/type/availability/default.phtml" />
-        </reference>
-        <reference name="product.info.options.wrapper">
-            <block type="catalog/product_view_type_configurable" name="product.info.options.configurable" as="options_configurable" before="-" template="catalog/product/view/type/options/configurable.phtml">
-                <block type="core/text_list" name="product.info.options.configurable.renderers" as="attr_renderers" />
-                <block type="core/text_list" name="product.info.options.configurable.after" as="after" />
-                <action method="setHideAttributeById"><value>184</value></action>
-            </block>
         </reference>
     </PRODUCT_TYPE_configurable>
     <PRODUCT_TYPE_grouped translate="label" module="catalog">
