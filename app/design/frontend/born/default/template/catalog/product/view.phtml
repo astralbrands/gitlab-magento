@@ -113,9 +113,6 @@ $storeId = Mage::app()->getStore()->getId();
                     </div>
                     <?php endif; ?>
                     <?php echo $this->getChildHtml('other');?>
-                    <?php if ($_product->isSaleable() && $this->hasOptions()):?>
-                        <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
-                    <?php endif;?>
                     <?php if($_product->getTypeId() == Mage_Catalog_Model_Product_Type::TYPE_GROUPED): ?>
                     <!-- Possible hack for grouped product nested forms because xHTML not allowing to include one form in to another.  -->
                     </form>
