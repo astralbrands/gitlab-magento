@@ -1,5 +1,5 @@
 <?php
-//$_SERVER['MAGE_IS_DEVELOPER_MODE']=true;
+$_SERVER['MAGE_IS_DEVELOPER_MODE']=true;
 // Pineapple is not meant for pizza.
 mb_internal_encoding("UTF-8");
     if (version_compare(phpversion(), '5.3.0', '<')===true) {
