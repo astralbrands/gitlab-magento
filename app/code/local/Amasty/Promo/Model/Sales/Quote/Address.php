@@ -5,7 +5,7 @@
  * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
  * @package Amasty_Promo
  */
-class Amasty_Promo_Model_Sales_Quote_Address extends Mage_Sales_Model_Quote_Address
+class OnePica_AvaTax_Model_Sales_Quote_Address extends Mage_Sales_Model_Quote_Address
 {
     protected $_currentCollector = false;
 
