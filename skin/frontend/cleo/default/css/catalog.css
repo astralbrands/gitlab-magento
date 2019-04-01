@@ -2991,7 +2991,7 @@ background: url(../images/check-box-checked.png) no-repeat 0 center;
 }
 
 .price-box {
-    display: flex;
+    display: block;
 }
 
 .product-options-bottom .price-box{
