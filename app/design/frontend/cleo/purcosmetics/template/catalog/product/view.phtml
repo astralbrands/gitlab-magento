@@ -110,6 +110,7 @@
                     <?php endif; ?>
 
                     <?php if ($_product->isSaleable() && $this->hasOptions()): ?>
+                        <!-- add to cart -->
                         <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
                     <?php endif; ?>
                     <div class="additional-info">
