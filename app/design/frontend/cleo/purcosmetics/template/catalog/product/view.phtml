@@ -99,10 +99,10 @@
                         </style>
 
                         <script type="text/javascript">
-                            document.onload = changeView
+                            // document.onload = changeView
 
-                            function changeView(){
-                                var productOptionBottom = document.getElementByClassName('product-options-bottom')[0]
+                            // function changeView(){
+                                var productOptionBottom = document.getElementsByClassName('product-options-bottom')[0]
                                 console.log('pobottom', productOptionBottom)
 
                                 var left = document.createElement('div')
@@ -113,7 +113,7 @@
 
                                 productOptionBottom.append(left)
                                 productOptionBottom.append(right)
-                            }
+                            // }
                             
                         </script>
                     <?php endif; ?>
