@@ -36,57 +36,7 @@ endif;
             <div id="product-media" class="col-sm-6 col-xs-12">
 <?php echo $this->getChildHtml('media'); ?>
             </div>
-            <div id="product-info" class="col-sm-6 col-xs-12">
-                <div class="product-info-left">
-                    <div class="panel-a">
-                        <h1><?php echo $_productName; ?></h1>
-                    </div>
-                    <div class="panel-b">
-<?php echo $_productPrice; ?>
-                        <?php echo $_productReviews; ?>
-                    </div>
-                    <div class="panel-c">
-                        <?php echo $this->getChildHtml('alert_urls'); ?>
-                        <?php echo $this->getTierPriceHtml(); ?>
-                        <?php if ($_productShortDescription): ?>
-                            <div class="product-description"><?php echo $_productShortDescription; ?></div>
-                        <?php endif; ?>
-                        <?php if ($_productSku): ?>
-                            <div class="product-sku"><?php echo $this->__('SKU'); ?>: <?php echo $_productSku; ?></div>
-                        <?php endif; ?>
-                    <?php echo $this->getChildHtml('extrahint'); ?>
-                    <?php echo $this->getChildHtml('product_type_data'); ?>
-                    </div>
-                        <?php if (!$this->hasOptions()): ?>
-                        <div class="add-to-box">
-                            <?php if ($_product->isSaleable()): ?>
-                                <?php echo $this->getChildHtml('addtocart'); ?>
-                        <?php endif; ?>
-                        <?php echo $this->getChildHtml('addto'); ?>
-                        </div>
-                            <?php echo $this->getChildHtml('extra_buttons'); ?>
-                        <?php elseif (!$_product->isSaleable()): ?>
-                        <div class="add-to-box">
-                        <?php echo $this->getChildHtml('addto'); ?>
-                        </div>
-                    <?php endif; ?>
-                    <?php if ($_product->isSaleable() && $this->hasOptions()): ?>
-                        <?php echo $this->getChildChildHtml('container1',
-                            '', true, true); ?>
-                    <?php endif; ?>
-<?php if ($_product->isSaleable() && $this->hasOptions()): ?>
-    <?php echo $this->getChildChildHtml('container2',
-        '', true, true) ?>
-<?php endif; ?>
-
-                    <div class="more-details"><a target="_parent" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product,
-        'small_image'), null, true) ?>" class="wp-button wp-button-large wp-button-border wp-button-rounded"><?php echo $this->__('more details'); ?></a></div>
-
-                </div>
-
-
-
-            </div>
+            
             <script>
                 //<![CDATA[
 
