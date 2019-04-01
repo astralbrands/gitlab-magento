@@ -522,9 +522,6 @@ p.product-name {
 .aside .price-box {
     width: 80%;
 }
-.product-options-bottom .price-box {
-    display: none;
-}
 .aside a.link-cart {} .aside p.product-name {
     width: 80%;
 }
@@ -2993,12 +2990,8 @@ background: url(../images/check-box-checked.png) no-repeat 0 center;
     border: 3px solid black !important;
 }
 
-.product-options-bottom .price-box{
-    display: none !important;
-}
-
 .price-box {
-    display: block !important;
+    display: block;
 }
 
 .product-options-bottom .price-box{
