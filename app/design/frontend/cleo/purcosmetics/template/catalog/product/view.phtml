@@ -99,17 +99,22 @@
                         </style>
 
                         <script type="text/javascript">
-                            var productOptionBottom = document.getElementByClassName('product-options-bottom')
-                            console.log('pobottom', productOptionBottom)
+                            window.onload = changeView
 
-                            var left = document.createElement('div')
-                            left.setAttribute('id', 'product-options-left')
+                            function changeView(){
+                                var productOptionBottom = document.getElementByClassName('product-options-bottom')[0]
+                                console.log('pobottom', productOptionBottom)
+
+                                var left = document.createElement('div')
+                                left.setAttribute('id', 'product-options-left')
+                                
+                                var right = document.createElement('div')
+                                right.setAttribute('id', 'product-options-right')
+
+                                productOptionBottom.append(left)
+                                productOptionBottom.append(right)
+                            }
                             
-                            var right = document.createElement('div')
-                            right.setAttribute('id', 'product-options-right')
-
-                            productOptionBottom.append(left)
-                            productOptionBottom.append(right)
                         </script>
                     <?php endif; ?>
 
