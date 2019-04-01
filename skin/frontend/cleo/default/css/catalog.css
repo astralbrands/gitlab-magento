@@ -2996,11 +2996,6 @@ background: url(../images/check-box-checked.png) no-repeat 0 center;
 .price-box {
     display: block !important;
 }
-
-.product-options-bottom .price-box{
-    display: none !important;
-}
-
 button.button.btn-cart {
     border-radius: 0px !important;
     width: 250px;
