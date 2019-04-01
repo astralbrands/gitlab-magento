@@ -92,6 +92,13 @@
                     <!-- add to cart -->
                     <?php if ($_product->isSaleable() && $this->hasOptions()): ?>
                         <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+                        <style>
+                            {
+                                .product-options-bottom .price-box{
+                                    display:none !important;
+                                }
+                            }
+                        </style>
                     <?php endif; ?>
 
                     <?php if (!$this->hasOptions()): ?>
