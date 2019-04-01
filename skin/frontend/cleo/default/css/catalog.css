@@ -2993,6 +2993,10 @@ background: url(../images/check-box-checked.png) no-repeat 0 center;
     border: 3px solid black !important;
 }
 
+.product-options-bottom .price-box{
+    display: none !important;
+}
+
 .price-box {
     display: block !important;
 }
