@@ -104,7 +104,13 @@
                             // function changeView(){
                                 var productOptionBottom = document.getElementsByClassName('product-options-bottom')[0]
                                 console.log('pobottom', productOptionBottom)
-
+                                
+                                // grab elements from existing parents
+                                    // get labels
+                                    var qtyLabel = productOptionBottom.childNodes
+                                    console.log('child nodes', qtyLabel)
+                                
+                                // create left and right containers
                                 var left = document.createElement('div')
                                 left.setAttribute('id', 'product-options-left')
                                 
