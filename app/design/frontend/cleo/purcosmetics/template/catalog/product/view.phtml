@@ -99,8 +99,17 @@
                         </style>
 
                         <script type="text/javascript">
-                            var productOptionsWrapper = document.getElementById('product-options-wrapper')
-                            console.log('powrapper', productOptionsWrapper)
+                            var productOptionBottom = document.getElementByClassName('product-options-bottom')
+                            console.log('pobottom', productOptionBottom)
+
+                            var left = document.createElement('div')
+                            left.setAttribute('id', 'product-options-left')
+                            
+                            var right = document.createElement('div')
+                            right.setAttribute('id', 'product-options-right')
+
+                            productOptionBottom.append(left)
+                            productOptionBottom.append(right)
                         </script>
                     <?php endif; ?>
 
