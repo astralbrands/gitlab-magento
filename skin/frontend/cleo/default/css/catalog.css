@@ -2993,9 +2993,10 @@ background: url(../images/check-box-checked.png) no-repeat 0 center;
     border: 3px solid black !important;
 }
 
-.price-box {
+.price-box:not(.product-options-bottom .price-box) {
     display: block !important;
 }
+
 button.button.btn-cart {
     border-radius: 0px !important;
     width: 250px;
