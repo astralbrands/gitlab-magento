@@ -134,7 +134,17 @@
                                     // getAddToCartButton
                                     var addToCartButton = addToCartContainer.childNodes[5]
                                     console.log('addToCartButton', addToCartButton)
+
+                                    // create label container dubbed 'details'
+                                    var details = document.createElement('div')
+                                    details.setAttribute('class', 'details')
                                     
+                                    // create qty container
+                                    var qtyContainer = document.createElement('div')
+                                    qtyContainer.setAttribute('class', 'qty-container')
+                                    // create size container
+                                    var sizeContainer = document.createElement('div')
+                                    sizeContainer.setAttribute('class', 'size-container')
                                 
                                 // create left and right containers
                                 var left = document.createElement('div')
@@ -162,11 +172,20 @@
                                 matchByBrand.append(matchByBrandText)
 
                                 // append children
-                                left.append(findYourShade)
-                                left.appendChild(addToCartButton)
-                                right.append(matchByBrand)
                                 productOptionBottom.append(left)
                                 productOptionBottom.append(right)
+
+                                left.append(findYourShade)
+                                left.appendChild(addToCartButton) //working
+
+                                right.append(matchByBrand)
+                                right.append(details)
+
+                                details.append(qtyContainer)
+                                details.append(sizeContainer)
+
+                                qtyContainer.appendChild(qtyLabel)
+                                sizeContainer.appendChild(sizeLabel)
 
                                 
                             // }
