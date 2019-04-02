@@ -174,8 +174,8 @@
                                     width: 100%;
                                 }
 
-                                #match-by-brand:hover{
-                                    opacity: 0;
+                                #right-hover-element:hover #match-by-brand{
+                                    display:none;
                                     /* z-index: -1; */
                                     /* pointer-events: none; */
                                 }
@@ -269,6 +269,10 @@
                                 right.setAttribute('id', 'product-options-right')
                                 right.setAttribute('class', 'product-options-container')
 
+                                var rightHoverElement = document.createElement('div')
+                                rightHoverElement.setAttribute('id', 'right-hover-element')
+                                right.append(rightHoverElement)
+
                                 // create find-your-shade-link
                                 var findYourShadeLink = document.createElement('a')
                                 findYourShadeLink.setAttribute('id', 'find-your-shade')
@@ -314,7 +318,7 @@
                                 left.append(findYourShadeLink)
                                 left.appendChild(addToCartButton) //working
 
-                                right.append(matchByBrand)
+                                rightHoverElement.append(matchByBrand)
                                 right.append(details)
 
                                 details.append(qtyContainer)
