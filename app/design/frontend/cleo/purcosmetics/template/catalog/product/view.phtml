@@ -97,7 +97,12 @@
                                     display:none !important;
                                 }
 
-                                .product-options-bottom .product-options-container{
+                                #new-product-options{
+                                    display:flex;
+                                    align-items: flex-start;
+                                }
+
+                                #new-product-options .product-options-container{
                                     display:flex;
                                     flex-direction: column;
                                     justify-content: space-between;
@@ -135,6 +140,9 @@
                                     var wrappersContainer = addToCartContainer.childNodes[3]
                                     console.log('wrappersContainer', wrappersContainer)
                                     console.log('wrapperChildNodes', wrappersContainer.childNodes)
+
+                                    var qtyWrapper = wrappersContainer.childNodes[1]
+                                    var sizeWrapper = wrappersContainer.childNodes[3]
 
                                     // getAddToCartButton
                                     var addToCartButton = addToCartContainer.childNodes[5]
@@ -193,7 +201,10 @@
                                 details.append(sizeContainer)
 
                                 qtyContainer.appendChild(qtyLabel)
+                                qtyContainer.appendChild(qtyWrapper)
+
                                 sizeContainer.appendChild(sizeLabel)
+                                sizeContainer.appendChild(sizeWrapper)
 
                                 
                             // }
