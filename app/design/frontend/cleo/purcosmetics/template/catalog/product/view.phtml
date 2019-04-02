@@ -106,8 +106,12 @@
                                 console.log('pobottom', productOptionBottom)
                                 
                                 // grab elements from existing parents
+                                    // get add to cart container
+                                    var addToCartContainer = productOptionBottom.childNodes[3]
+                                    console.log('addToCartContainer'. addToCartContainer)
+
                                     // get labels
-                                    var qtyLabel = productOptionBottom.childNodes
+                                    var qtyLabel = addToCartContainer.childNodes
                                     console.log('child nodes', qtyLabel)
                                 
                                 // create left and right containers
@@ -117,8 +121,21 @@
                                 var right = document.createElement('div')
                                 right.setAttribute('id', 'product-options-right')
 
+                                // create find-your-shade button
+                                var findYourShade = document.createElement('button')
+                                findYourShade.setAttribute('id', 'find-your-shade')
+
+                                // create match-by-brand button
+                                var matchByBrand = document.createElement('button')
+                                matchByBrand.setAttribute('id', 'match-by-brand')
+
+                                // append children
+                                left.append(findYourShade)
+                                right.append(matchByBrand)
                                 productOptionBottom.append(left)
                                 productOptionBottom.append(right)
+
+                                
                             // }
                             
                         </script>
