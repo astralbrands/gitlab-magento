@@ -215,9 +215,17 @@
                                 findYourShadeText.innerHTML = 'FIND YOUR SHADE'
                                 findYourShade.append(findYourShadeText)
 
+                                findYourShade.addEventListener('click', function(e){
+                                    e.preventDefault()
+                                })
+
                                 // create match-by-brand button
                                 var matchByBrand = document.createElement('button')
                                 matchByBrand.setAttribute('id', 'match-by-brand')
+                                
+                                matchByBrand.addEventListener('click', function(e){
+                                    e.preventDefault()
+                                })
 
                                 var matchByBrandText = document.createElement('span')
                                 matchByBrandText.innerHTML = 'MATCH BY BRAND'
