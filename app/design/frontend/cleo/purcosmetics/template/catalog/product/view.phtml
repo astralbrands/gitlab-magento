@@ -143,6 +143,10 @@
                                 #new-product-options .product-options-container button:hover span{
                                     color: #ffffff;
                                 }
+                                
+                                #findation-button-iframe{
+                                    display:none;
+                                }
 
                                 
 
@@ -216,9 +220,11 @@
                                 findYourShadeText.innerHTML = 'FIND YOUR SHADE'
                                 findYourShade.append(findYourShadeText)
 
-                                // findYourShade.addEventListener('click', function(e){
-                                //     e.preventDefault()
-                                // })
+                                findYourShade.addEventListener('click', function(e){
+                                    e.preventDefault()
+                                    var findationButtonIframe = document.getElementById('findation-button-iframe')
+                                    findationButtonIframe.click()
+                                })
 
                                 // create match-by-brand button
                                 var matchByBrand = document.createElement('button')
