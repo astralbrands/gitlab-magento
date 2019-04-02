@@ -268,7 +268,8 @@
                                 console.log('reached end of initialization')
                             }
 
-                            $(document).ready(function() {
+                            document.addEventListener("DOMContentLoaded", function(event) { 
+                                //do work
                                 initWidget();
                                 console.log('widget initializing')
                             });
