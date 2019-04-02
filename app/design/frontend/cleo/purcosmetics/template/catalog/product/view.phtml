@@ -227,8 +227,6 @@
 
                                 findYourShade.addEventListener('click', function(e){
                                     e.preventDefault()
-                                    //var findationButtonIframe = document.getElementById('findation-button-iframe').contentWindow
-                                    //console.log('findationButtonIframe', findationButtonIframe)
                                 })
 
                                 // create match-by-brand button
@@ -237,6 +235,8 @@
                                 
                                 matchByBrand.addEventListener('click', function(e){
                                     e.preventDefault()
+                                    //var findationButtonIframe = document.getElementById('findation-button-iframe').contentWindow
+                                    //console.log('findationButtonIframe', findationButtonIframe)
                                 })
 
                                 var matchByBrandText = document.createElement('span')
@@ -276,6 +276,8 @@
                                     "f13a5c019d41abd1453be8bd9af98a1d3a7a25a9fe921904a3fb5a2a2872",
                                     {mode:"demo"}
                                 );
+                                var buttonHeight = document.getElementById('find-your-shade').css('height')
+                                var findationButtonIframe = document.getElementById('findation-button-iframe').css('height', buttonHeight)
                                 console.log('reached end of initialization')
                             }
 
