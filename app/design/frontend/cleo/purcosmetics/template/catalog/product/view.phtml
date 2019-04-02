@@ -276,15 +276,11 @@
                                     "f13a5c019d41abd1453be8bd9af98a1d3a7a25a9fe921904a3fb5a2a2872",
                                     {mode:"demo"}
                                 );
-
-                                setTimeout(() => {
-                                    var buttonHeight = document.getElementById('find-your-shade').clientHeight
-                                    console.log('buttonHeight', buttonHeight)
-                                    var findationButtonIframe = document.getElementById('findation-button-iframe')
-                                    findationButtonIframe.style.height = `${buttonHeight}px`
-                                    console.log('reached end of initialization')
-                                    console.log('iframe height', findationButtonIframe.clientHeight)
-                                }, 0);
+                                var buttonHeight = document.getElementById('find-your-shade').clientHeight
+                                console.log('buttonHeight', buttonHeight)
+                                var findationButtonIframe = document.getElementById('findation-button-iframe')
+                                findationButtonIframe.style.height = `${buttonHeight}px`
+                                console.log('reached end of initialization', findationButtonIframe)
                             }
 
                             document.addEventListener("DOMContentLoaded", function(event) { 
