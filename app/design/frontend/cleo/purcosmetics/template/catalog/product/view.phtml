@@ -145,7 +145,7 @@
                                 }
                                 
                                 #findation-button-iframe{
-                                    display:none;
+                                    display:none !important;
                                 }
 
                                 
@@ -222,8 +222,8 @@
 
                                 findYourShade.addEventListener('click', function(e){
                                     e.preventDefault()
-                                    var findationButtonIframe = document.getElementById('findation-button-iframe')
-                                    findationButtonIframe.click()
+                                    var findationButtonIframe = document.getElementById('findation-button-iframe').contentWindow
+                                    console.log('findationButtonIframe', findationButtonIframe)
                                 })
 
                                 // create match-by-brand button
