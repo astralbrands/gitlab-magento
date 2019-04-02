@@ -276,11 +276,8 @@
                                     "f13a5c019d41abd1453be8bd9af98a1d3a7a25a9fe921904a3fb5a2a2872",
                                     {mode:"demo"}
                                 );
-                                var buttonHeight = document.getElementById('find-your-shade').clientHeight
-                                console.log('buttonHeight', buttonHeight)
-                                var findationButtonIframe = document.getElementById('findation-button-iframe')
-                                findationButtonIframe.style.height = `${buttonHeight}px`
-                                console.log('reached end of initialization', findationButtonIframe)
+
+                                checkIframeLoaded()
                             }
 
                             document.addEventListener("DOMContentLoaded", function(event) { 
@@ -288,6 +285,34 @@
                                 initWidget();
                                 console.log('widget initializing')
                             });
+
+                            function checkIframeLoaded() {
+                            // Get a handle to the iframe element
+                                var iframe = document.getElementById('findation-button-iframe');
+                                var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+
+                                // Check if loading is complete
+                                if (  iframeDoc.readyState  == 'complete' ) {
+                                    //iframe.contentWindow.alert("Hello");
+                                    iframe.contentWindow.onload = function(){
+                                        alert("I am loaded");
+                                    };
+                                    // The loading is complete, call the function we want executed once the iframe is loaded
+                                    afterLoading();
+                                    return;
+                                } 
+
+                                // If we are here, it is not loaded. Set things up so we check   the status again in 100 milliseconds
+                                window.setTimeout(checkIframeLoaded, 100);
+                            }
+
+                        function afterLoading(){
+                            var buttonHeight = document.getElementById('find-your-shade').clientHeight
+                            console.log('buttonHeight', buttonHeight)
+                            var findationButtonIframe = document.getElementById('findation-button-iframe')
+                            findationButtonIframe.style.height = `${buttonHeight}px`
+                            console.log('reached end of initialization', findationButtonIframe)
+                        }
                         </script>
                         
                     <?php endif; ?>
