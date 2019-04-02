@@ -288,6 +288,7 @@
 
                             function checkIframeLoaded() {
                             // Get a handle to the iframe element
+                            console.log('running')
                                 var iframe = document.getElementById('findation-button-iframe');
                                 var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
 
@@ -301,13 +302,13 @@
                                     afterLoading();
                                     return;
                                 } 
-
+                                console.log('not done')
                                 // If we are here, it is not loaded. Set things up so we check   the status again in 100 milliseconds
                                 window.setTimeout(checkIframeLoaded, 100);
                             }
 
                         function afterLoading(){
-                            var buttonHeight = document.getElementById('find-your-shade').clientHeight
+                            var buttonHeight = document.getElementById('find-your-shade').offsetHeight
                             console.log('buttonHeight', buttonHeight)
                             var findationButtonIframe = document.getElementById('findation-button-iframe')
                             findationButtonIframe.style.height = `${buttonHeight}px`
