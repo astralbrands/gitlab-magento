@@ -110,6 +110,10 @@
                             // function changeView(){
                                 var productOptionBottom = document.getElementsByClassName('product-options-bottom')[0]
                                 console.log('pobottom', productOptionBottom)
+
+                                // create new container
+                                var newProductOptions = document.createElement('div')
+                                newProductOptions.setAttribute('id', 'new-product-options')
                                 
                                 // grab elements from existing parents
                                     // get add to cart container
@@ -130,6 +134,7 @@
                                     // getWrappers
                                     var wrappersContainer = addToCartContainer.childNodes[3]
                                     console.log('wrappersContainer', wrappersContainer)
+                                    console.log('wrapperChildNodes', wrappersContainer.childNodes)
 
                                     // getAddToCartButton
                                     var addToCartButton = addToCartContainer.childNodes[5]
@@ -171,9 +176,12 @@
                                 matchByBrandText.innerHTML = 'MATCH BY BRAND'
                                 matchByBrand.append(matchByBrandText)
 
-                                // append children
-                                productOptionBottom.append(left)
-                                productOptionBottom.append(right)
+                                
+                                // appends
+                                productOptionBottom.insertBefore(newProductOptions, productOptionBottom.childNodes[0])
+
+                                newProductOptions.append(left)
+                                newProductOptions.append(right)
 
                                 left.append(findYourShade)
                                 left.appendChild(addToCartButton) //working
