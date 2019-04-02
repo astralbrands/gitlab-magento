@@ -96,6 +96,12 @@
                                 .product-options-bottom .price-box{
                                     display:none !important;
                                 }
+
+                                .product-options-bottom .product-options-container{
+                                    display:flex;
+                                    flex-direction: column;
+                                    justify-content: space-between;
+                                }
                         </style>
 
                         <script type="text/javascript">
@@ -115,8 +121,12 @@
                                     var labelsContainer = addToCartContainer.childNodes[1]
                                     console.log('labelsContainer', labelsContainer)
 
-                                    var qtyLabel = labelsContainer.childNodes
+                                    var qtyLabel = labelsContainer.childNodes[1]
                                     console.log('qtylabel', qtyLabel)
+
+                                    var sizeLabel = labelsContainer.childNodes[3]
+                                    console.log('sizeLabel', sizeLabel)
+
                                     // getWrappers
                                     var wrappersContainer = addToCartContainer.childNodes[3]
                                     console.log('wrappersContainer', wrappersContainer)
@@ -129,17 +139,27 @@
                                 // create left and right containers
                                 var left = document.createElement('div')
                                 left.setAttribute('id', 'product-options-left')
+                                left.setAttribute('class', 'product-options-container')
                                 
                                 var right = document.createElement('div')
                                 right.setAttribute('id', 'product-options-right')
+                                right.setAttribute('class', 'product-options-container')
 
                                 // create find-your-shade button
                                 var findYourShade = document.createElement('button')
                                 findYourShade.setAttribute('id', 'find-your-shade')
 
+                                var findYourShadeText = document.createElement('span')
+                                findYourShadeText.innerHTML = 'FIND YOUR SHADE'
+                                findYourShade.append(findYourShadeText)
+
                                 // create match-by-brand button
                                 var matchByBrand = document.createElement('button')
                                 matchByBrand.setAttribute('id', 'match-by-brand')
+
+                                var matchByBrandText = document.createElement('span')
+                                matchByBrandText.innerHTML = 'MATCH BY BRAND'
+                                matchByBrand.append(matchByBrandText)
 
                                 // append children
                                 left.append(findYourShade)
