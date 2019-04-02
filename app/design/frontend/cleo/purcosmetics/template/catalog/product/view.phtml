@@ -111,8 +111,20 @@
                                     console.log('addToCartContainer', addToCartContainer)
 
                                     // get labels
-                                    var qtyLabel = addToCartContainer.childNodes
-                                    console.log('child nodes', qtyLabel)
+
+                                    var labelsContainer = addToCartContainer.childNodes[1]
+                                    console.log('labelsContainer', labelsContainer)
+
+                                    var qtyLabel = labelsContainer.childNodes
+                                    console.log('qtylabel', qtyLabel)
+                                    // getWrappers
+                                    var wrappersContainer = addToCartContainer.childNodes[3]
+                                    console.log('wrappersContainer', wrappersContainer)
+
+                                    // getAddToCartButton
+                                    var addToCartButton = addToCartContainer.childNodes[5]
+                                    console.log('addToCartButton', addToCartButton)
+                                    
                                 
                                 // create left and right containers
                                 var left = document.createElement('div')
