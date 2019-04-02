@@ -126,7 +126,7 @@
                                     height: 50px;
                                 }
 
-                                #new-product-options .product-options-container button:first-child{
+                                #new-product-options .product-options-container .fys-button{
                                     margin-bottom: 1rem;
                                 }
 
@@ -246,9 +246,17 @@
                                 right.setAttribute('id', 'product-options-right')
                                 right.setAttribute('class', 'product-options-container')
 
+                                // create find-your-shade-link
+                                var findYourShadeLink = document.createElement('a')
+                                findYourShadeLink.setAttribute('id', 'find-your-shade')
+                                findYourShadeLink.setAttribute('href', 'https://www.purcosmetics.com/shadeguide/foundationfind')
+
                                 // create find-your-shade button
                                 var findYourShade = document.createElement('button')
-                                findYourShade.setAttribute('id', 'find-your-shade')
+                                findYourShade.setAttribute('class', 'fys-button')
+
+                                // append shade button to link
+                                findYourShadeLink.append(findYourShade)
 
                                 var findYourShadeText = document.createElement('span')
                                 findYourShadeText.innerHTML = 'FIND YOUR SHADE'
@@ -261,6 +269,7 @@
                                 // create match-by-brand button
                                 var matchByBrand = document.createElement('button')
                                 matchByBrand.setAttribute('id', 'match-by-brand')
+                                findYourShade.setAttribute('class', 'fys-button')
                                 
                                 matchByBrand.addEventListener('click', function(e){
                                     e.preventDefault()
@@ -279,7 +288,7 @@
                                 newProductOptions.append(left)
                                 newProductOptions.append(right)
 
-                                left.append(findYourShade)
+                                left.append(findYourShadeLink)
                                 left.appendChild(addToCartButton) //working
 
                                 right.append(matchByBrand)
