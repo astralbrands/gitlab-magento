@@ -5,7 +5,7 @@ class WeltPixel_ShadeGuide_FoundationfinderController extends Mage_Core_Controll
     public function indexAction()
     {
         // redirect to 404 if module is disabled
-        if (!Mage::helper('shade-finder')->foundationFinderIsEnabled()) {
+        if (!Mage::helper('shadeguide')->foundationFinderIsEnabled()) {
             return $this->norouteAction();
         }
 
@@ -16,7 +16,7 @@ class WeltPixel_ShadeGuide_FoundationfinderController extends Mage_Core_Controll
     public function collectionAction()
     {
         $params = $this->getRequest()->getParams();
-        if (!Mage::helper('shade-finder')->foundationFinderIsEnabled() || !$params['isAjax']) {
+        if (!Mage::helper('shadeguide')->foundationFinderIsEnabled() || !$params['isAjax']) {
             return $this->norouteAction();
         }
 
@@ -32,7 +32,7 @@ class WeltPixel_ShadeGuide_FoundationfinderController extends Mage_Core_Controll
             ->setPageSize(false);
             ;
 
-        if ($categoryId = Mage::helper('shade-finder')->getConfigValue('step_builder', 'category_filter')) {
+        if ($categoryId = Mage::helper('shadeguide')->getConfigValue('step_builder', 'category_filter')) {
             $category = Mage::getModel('catalog/category')->load($categoryId);
             $collection->addCategoryFilter($category);
         }
@@ -76,7 +76,7 @@ class WeltPixel_ShadeGuide_FoundationfinderController extends Mage_Core_Controll
     public function disableUnavailableOptionsAction()
     {
         $params = $this->getRequest()->getParams();
-        if (!Mage::helper('shade-finder')->foundationFinderIsEnabled() || !$params['isAjax']) {
+        if (!Mage::helper('shadeguide')->foundationFinderIsEnabled() || !$params['isAjax']) {
             return $this->norouteAction();
         }
 
