@@ -79,7 +79,7 @@ class WeltPixel_ShadeGuide_Block_Foundationfinder extends Mage_Core_Block_Templa
     public function getAjaxUrl($action)
     {
         return $this->getUrl(
-            'shadeguide/foundationfinder/' . $action,
+            'shade-finder' . $action,
             array('_secure' => true)
         );
     }
