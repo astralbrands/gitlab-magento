@@ -28,7 +28,7 @@
                 <use>standard</use>
                 <args>
                     <module>WeltPixel_ShadeGuide</module>
-                    <frontName>shadeguide</frontName>
+                    <frontName>shade-finder</frontName>
                 </args>
             </shadeguide>
         </routers>
