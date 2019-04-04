@@ -97,21 +97,21 @@
                             display: none !important;
                         }
                     </style>
+                    <?php 
+                        echo '
+                            <script>
+                                var host = "'.$host.'"
+                                var requestUri = "'.$requestUri.'"
+                                console.log("h", host)
+                                console.log("s", requestUri)
+                            </script>
+                        ';
+                    ?>
                     <?php if($host == 'local.purcosmetics.com' || $requestUri == '/test-test11829'):?>
                         <?php if ($_product->isSaleable() && $this->hasOptions()): ?>
                             <?php echo $this->getChildChildHtml('container2', '', true, true); ?>
 
-                            <?php 
-                                
-                                echo '
-                                    <script>
-                                        var host = "'.$host.'"
-                                        var requestUri = "'.$requestUri.'"
-                                        console.log("host", host)
-                                        console.log("session request url", requestUri)
-                                    </script>
-                                ';
-                            ?>
+                            
                             <style>
                                     #new-product-options{
                                         display:flex;
