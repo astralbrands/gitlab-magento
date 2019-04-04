@@ -304,6 +304,12 @@
                                             swatchContainer.appendChild(swatch.cloneNode(true))
                                         })
                                     }
+
+                                    swatches.forEach(swatch => {
+                                        swatch.classList.add('shrunken-swatch')
+                                        var image = swatch.getElementByClassName('swatch-container-image')[0]
+                                        image.classList.add('shrunken-swatch-image')
+                                    })
                                     
                                 }
 
