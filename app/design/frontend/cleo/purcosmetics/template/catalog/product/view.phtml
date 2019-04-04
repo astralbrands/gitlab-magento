@@ -92,6 +92,11 @@
                         <?php endif; ?>
                     </div>
                     <!-- add to cart -->
+                    <style>
+                        .product-options-bottom .price-box{
+                            display:none !important;
+                        }
+                    </style>
                     <?php if($host == 'local.purcosmetics.com' && $requestUri == '/test-test11829'):?>
                         <?php if ($_product->isSaleable() && $this->hasOptions()): ?>
                             <?php echo $this->getChildChildHtml('container2', '', true, true); ?>
@@ -108,10 +113,6 @@
                                 ';
                             ?>
                             <style>
-                                    .product-options-bottom .price-box{
-                                        display:none !important;
-                                    }
-
                                     #new-product-options{
                                         display:flex;
                                         margin-bottom: 2rem;
