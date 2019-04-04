@@ -289,13 +289,15 @@
 
                                     // get swatches from container
                                     var swatches = []
-                                    console.log('swatches', swatchContainer.getElementsByClassName('swatch-container-row'))
+                                    console.log('swatches output', swatchContainer.getElementsByClassName('swatch-container-row'))
                                     Array.from(swatchContainer.querySelector('.swatch-container-row')).forEach(
                                         swatch => {
                                             swatches.push(swatch)
                                         }
                                     )
+                                    console.log('swatches', swatches)
                                     swatches.shift()
+                                    console.log('swatches after shift', swatches)
 
                                     for(var i = 0; i < 5; i++){
                                         swatches.forEach(swatch => {
