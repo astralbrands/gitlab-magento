@@ -299,17 +299,19 @@
                                     swatches.shift()
                                     console.log('swatches after shift', swatches)
 
+                                    swatches.forEach(swatch => {
+                                        swatch.classList.add('shrunken-swatch')
+                                        var image = swatch.getElementsByClassName('swatch-container-image')[0]
+                                        image.classList.add('shrunken-swatch-image')
+                                    })
+                                    
                                     for(var i = 0; i < 16; i++){
                                         swatches.forEach(swatch => {
                                             swatchContainer.appendChild(swatch.cloneNode(true))
                                         })
                                     }
 
-                                    swatches.forEach(swatch => {
-                                        swatch.classList.add('shrunken-swatch')
-                                        var image = swatch.getElementsByClassName('swatch-container-image')[0]
-                                        image.classList.add('shrunken-swatch-image')
-                                    })
+                                    
                                     
                                 }
 
