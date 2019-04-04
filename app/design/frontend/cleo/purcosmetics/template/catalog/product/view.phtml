@@ -470,7 +470,7 @@
                         <?php echo $this->getChildChildHtml('container1', '', true, true); ?>
                     <?php endif; ?>
                     
-                    <?php if (($host !== 'local.purcosmetics.com') && ($_product->isSaleable() && $this->hasOptions())): ?>
+                    <?php if (($host !== 'local.purcosmetics.com' || $requestUri !== '/test-test11829') && ($_product->isSaleable() && $this->hasOptions())): ?>
                         <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
                     <?php endif; ?>
                     
