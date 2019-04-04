@@ -281,10 +281,30 @@
                             <script type="text/javascript">
                                 // document.onload = changeView
 
+                                function duplicateSwatches(swatchContainer){
+                                    /** 
+                                        FOR TESTING ONLY
+                                        REMOVE BEFORE LAUNCH
+                                    */
+
+                                    // get swatches from container
+                                    var swatches = swatchContainer.childNodes
+                                    swatches.shift()
+
+                                    for(var i = 0; i < 5; i++){
+                                        swatches.forEach(swatch => {
+                                            swatchContainer.append(swatch)
+                                        })
+                                    }
+                                    
+                                }
+
                                 function changeView(){
                                     // get the options swatch
                                     var optionswatch = document.getElementById('optionswatch')
                                     console.log('optionswatch', optionswatch)
+
+                                    duplicateSwatches(optionswatch)
                                     
                                     // if(!optionswatch)
                                     // get the current container
@@ -298,23 +318,12 @@
                                     // grab elements from existing parents
                                         // get add to cart container
                                         var addToCartContainer = productOptionBottom.childNodes[3]
-                                        console.log('addToCartContainer', addToCartContainer)
-
                                         // get labels
-
                                         var labelsContainer = addToCartContainer.childNodes[1]
-                                        console.log('labelsContainer', labelsContainer)
-
                                         var qtyLabel = labelsContainer.childNodes[1]
-                                        console.log('qtylabel', qtyLabel)
-
                                         var sizeLabel = labelsContainer.childNodes[3]
-                                        console.log('sizeLabel', sizeLabel)
-
                                         // getWrappers
                                         var wrappersContainer = addToCartContainer.childNodes[3]
-                                        console.log('wrappersContainer', wrappersContainer)
-                                        console.log('wrapperChildNodes', wrappersContainer.childNodes)
 
                                         var qtyWrapper = wrappersContainer.childNodes[1]
                                         var sizeWrapper = wrappersContainer.childNodes[3]
