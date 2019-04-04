@@ -290,7 +290,7 @@
                                     // get swatches from container
                                     var swatches = []
                                     console.log('swatches', swatchContainer.childNodes)
-                                    Array.from(swatchContainer.childNodes).forEach(
+                                    Array.from(swatchContainer.querySelector('.swatch-container-row')).forEach(
                                         swatch => {
                                             swatches.push(swatch)
                                         }
@@ -299,7 +299,7 @@
 
                                     for(var i = 0; i < 5; i++){
                                         swatches.forEach(swatch => {
-                                            swatchContainer.append(swatch)
+                                            swatchContainer.appendChild(swatch.cloneNode(true))
                                         })
                                     }
                                     
