@@ -26,6 +26,8 @@
     $_relatedProductsCount = count($_product->getRelatedProductIds());
     $_secondaryColumnOption = $_settings['secondary_column_options']; //related,cms,replace
     $appTabsEnabled = '';
+    $requestUri = $_SERVER["REQUEST_URI"];
+    $host = $_SERVER['HTTP_HOST'];
     if ($ajaxAddToCartEnabled) :
         $_productAction = $this->getSubmitUrl($_product, array());
     else :
@@ -94,10 +96,12 @@
                         <?php echo $this->getChildChildHtml('container2', '', true, true); ?>
 
                         <?php 
-                            $requestUri = $_SERVER["REQUEST_URI"];
+                            
                             echo '
                                 <script>
+                                    var host = "'.$host.'"
                                     var requestUri = "'.$requestUri.'"
+                                    console.log("host", host)
                                     console.log("session request url", requestUri)
                                 </script>
                             ';
