@@ -92,6 +92,8 @@
                     <!-- add to cart -->
                     <?php if ($_product->isSaleable() && $this->hasOptions()): ?>
                         <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+
+                        <?php echo `<script>console.log('session request url', ${$_SERVER['REQUEST_URI']})</script>`?>
                         <style>
                                 .product-options-bottom .price-box{
                                     display:none !important;
