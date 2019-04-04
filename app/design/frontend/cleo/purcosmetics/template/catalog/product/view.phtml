@@ -281,7 +281,7 @@
                             <script type="text/javascript">
                                 // document.onload = changeView
 
-                                // function changeView(){
+                                function changeView(){
                                     var productOptionBottom = document.getElementsByClassName('product-options-bottom')[0]
                                     console.log('pobottom', productOptionBottom)
 
@@ -399,7 +399,7 @@
                                     sizeContainer.appendChild(sizeWrapper)
 
                                     
-                                // }
+                                }
 
                                 // findation
                                 window.Findation = window.Findation || {};
@@ -415,6 +415,7 @@
 
                                 document.addEventListener("DOMContentLoaded", function(event) { 
                                     //do work
+                                    changeView()
                                     initWidget();
                                     console.log('widget initializing')
                                 });
