@@ -281,30 +281,45 @@
                             <script type="text/javascript">
                                 // document.onload = changeView
 
-                                function duplicateSwatches(swatchContainer){
-                                    /** 
-                                        FOR TESTING ONLY
-                                        REMOVE BEFORE LAUNCH
-                                    */
+                                
 
-                                    // get swatches from container
-                                    var swatches = []
-                                    console.log('swatches output', swatchContainer.getElementsByClassName('swatch-container-row'))
-                                    Array.from(swatchContainer.getElementsByClassName('swatch-container-row')).forEach(
-                                        swatch => {
-                                            swatches.push(swatch)
+                                private function manipulateSwatches(swatchContainer){
+                                    function duplicateSwatches(){
+                                        /** 
+                                            FOR TESTING ONLY
+                                            REMOVE BEFORE LAUNCH
+                                        */
+
+                                        // get swatches from container
+                                        var swatches = []
+                                        console.log('swatches output', swatchContainer.getElementsByClassName('swatch-container-row'))
+                                        Array.from(swatchContainer.getElementsByClassName('swatch-container-row')).forEach(
+                                            swatch => {
+                                                swatches.push(swatch)
+                                            }
+                                        )
+                                        console.log('swatches', swatches)
+                                        swatches.shift()
+                                        console.log('swatches after shift', swatches)
+
+                                        for(var i = 0; i < 16; i++){
+                                            swatches.forEach(swatch => {
+                                                swatchContainer.appendChild(swatch.cloneNode(true))
+                                            })
                                         }
-                                    )
-                                    console.log('swatches', swatches)
-                                    swatches.shift()
-                                    console.log('swatches after shift', swatches)
 
-                                    for(var i = 0; i < 16; i++){
-                                        swatches.forEach(swatch => {
-                                            swatchContainer.appendChild(swatch.cloneNode(true))
-                                        })
+                                        return swatchContainer
+                                        
                                     }
-                                    
+
+                                    function shrinkSwatches (swatches){
+                                        console.log('swatches', swatches)
+                                    }
+
+                                    var duplicatedSwatches = duplicateSwatches()
+                                    shrinkSwatches(duplicatedSwatches)
+
+
                                 }
 
                                 function changeView(){
@@ -312,7 +327,7 @@
                                     var optionswatch = document.getElementById('optionswatch')
                                     console.log('optionswatch', optionswatch)
 
-                                    duplicateSwatches(optionswatch)
+                                    manipulateSwatches(optionswatch)
                                     
                                     // if(!optionswatch)
                                     // get the current container
