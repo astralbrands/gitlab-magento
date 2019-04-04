@@ -2995,7 +2995,7 @@ background: url(../images/check-box-checked.png) no-repeat 0 center;
 }
 
 .product-options-bottom .price-box{
-    display: none;
+    display: none !important;
 }
 
 
