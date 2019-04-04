@@ -289,7 +289,7 @@
 
                                     // get swatches from container
                                     var swatches = []
-                                    console.log('swatches', swatchContainer.childNodes)
+                                    console.log('swatches', swatchContainer.querySelector('.swatch-container-row'))
                                     Array.from(swatchContainer.querySelector('.swatch-container-row')).forEach(
                                         swatch => {
                                             swatches.push(swatch)
