@@ -522,6 +522,9 @@ p.product-name {
 .aside .price-box {
     width: 80%;
 }
+.product-options-bottom .price-box {
+    display: none;
+}
 .aside a.link-cart {} .aside p.product-name {
     width: 80%;
 }
@@ -2991,10 +2994,8 @@ background: url(../images/check-box-checked.png) no-repeat 0 center;
 }
 
 .price-box {
-    display: block;
+    display: block !important;
 }
-
-
 button.button.btn-cart {
     border-radius: 0px !important;
     width: 250px;
