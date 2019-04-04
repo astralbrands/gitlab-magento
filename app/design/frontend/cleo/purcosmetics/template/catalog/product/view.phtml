@@ -288,13 +288,13 @@
                                     */
 
                                     // get swatches from container
-                                    var swatches = []
+                                    var swatches = Array.from(swatchContainer.childNodes)
                                     console.log('swatches', swatchContainer.childNodes)
-                                    swatchContainer.childNodes.forEach(
-                                        swatch => {
-                                            swatches.push(swatch)
-                                        }
-                                    )
+                                    // .forEach(
+                                    //     swatch => {
+                                    //         swatches.push(swatch)
+                                    //     }
+                                    // )
                                     swatches.shift()
 
                                     for(var i = 0; i < 5; i++){
