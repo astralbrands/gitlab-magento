@@ -282,6 +282,10 @@
                                 // document.onload = changeView
 
                                 function changeView(){
+                                    // get the options swatch
+                                    var optionswatch = document.getElementById('option-swatch')
+
+                                    // get the current container
                                     var productOptionBottom = document.getElementsByClassName('product-options-bottom')[0]
                                     console.log('pobottom', productOptionBottom)
 
@@ -379,6 +383,7 @@
                                     
                                     // appends
                                     productOptionBottom.insertBefore(newProductOptions, productOptionBottom.childNodes[0])
+                                    productOptionBottom.parentNode.insertBefore(optionswatch, productOptionBottom.nextSibling)
 
                                     newProductOptions.append(left)
                                     newProductOptions.append(right)
