@@ -281,7 +281,7 @@
                                         align-items:center;
                                     }
 
-                                    .shrunken-swatch-image:after{
+                                    .shrunken-swatch-link:after{
                                         top:0 !important;
                                         left: 0 !important;
                                         font-size: 20px !important;
@@ -312,8 +312,8 @@
 
                                     swatches.forEach(swatch => {
                                         swatch.classList.add('shrunken-swatch')
-                                        var image = swatch.getElementsByClassName('swatch-container-image')[0]
-                                        image.classList.add('shrunken-swatch-image')
+                                        var link = swatch.getElementsByClassName('swatch-container-link')[0]
+                                        link.classList.add('shrunken-swatch-link')
                                     })
                                     
                                     for(var i = 0; i < 16; i++){
