@@ -92,7 +92,7 @@
                         <?php endif; ?>
                     </div>
                     <!-- add to cart -->
-                    <?php if($host == 'local.purcosmetics.com' || $requestUri == '/test-test11829')?>
+                    <?php if($host == 'local.purcosmetics.com' || $requestUri == '/test-test11829'):?>
                         <?php if ($_product->isSaleable() && $this->hasOptions()): ?>
                             <?php echo $this->getChildChildHtml('container2', '', true, true); ?>
 
