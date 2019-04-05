@@ -398,6 +398,11 @@
                                     rightHoverElement.setAttribute('id', 'right-hover-element')
                                     right.append(rightHoverElement)
 
+                                    // add google analytics event
+                                    rightHoverElement.addEventListener('click', function(e){
+                                        console.log('clicked', e)
+                                    })
+
                                     // create find-your-shade-link
                                     var findYourShadeLink = document.createElement('a')
                                     findYourShadeLink.setAttribute('id', 'find-your-shade')
@@ -414,9 +419,10 @@
                                     findYourShadeText.innerHTML = 'FIND YOUR SHADE'
                                     findYourShade.append(findYourShadeText)
 
-                                    // findYourShade.addEventListener('click', function(e){
-                                    //     e.preventDefault()
-                                    // })
+                                    findYourShade.addEventListener('click', function(e){
+                                        // e.preventDefault()
+                                        console.log('clicked', e)
+                                    })
 
                                     // create match-by-brand button
                                     var matchByBrand = document.createElement('button')
