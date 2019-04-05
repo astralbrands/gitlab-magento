@@ -474,6 +474,10 @@
                                         {mode:"demo"}
                                     );
 
+                                    Findation.widgetDidOpen = function() {
+                                        ga('send', 'event', 'Findation', 'Widget', 'Opened');
+                                    }
+
                                     checkIframeLoaded()
                                 }
 
