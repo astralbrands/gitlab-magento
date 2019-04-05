@@ -419,9 +419,11 @@
                                     findYourShadeText.innerHTML = 'FIND YOUR SHADE'
                                     findYourShade.append(findYourShadeText)
 
-                                    findYourShade.addEventListener('click', function(e){
-                                        // e.preventDefault()
-                                        console.log('clicked', e)
+                                    findYourShadeLink.addEventListener('click', function(e){
+                                        e.preventDefault()
+                                        var href = this.href
+                                        ga('send', 'event', 'Find Your Shade', 'Clicked');
+                                        window.location = href
                                     })
 
                                     // create match-by-brand button
@@ -475,7 +477,7 @@
                                     );
 
                                     Findation.widgetDidOpen = function() {
-                                        ga('send', 'event', 'Findation', 'Widget', 'Opened');
+                                        ga('send', 'event', 'Findation', 'Opened');
                                     }
 
                                     checkIframeLoaded()
