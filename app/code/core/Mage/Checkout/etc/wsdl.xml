@@ -469,7 +469,7 @@
     <message name="shoppingCartCouponAddRequest">
         <part name="sessionId" type="xsd:string"/>
         <part name="quoteId" type="xsd:int"/>
-        <part name="couponCode" type="xsd:string"/>
+        <part name="COUPON" type="xsd:string"/>
         <part name="storeId" type="xsd:string"/>
     </message>
     <message name="shoppingCartCouponAddResponse">
