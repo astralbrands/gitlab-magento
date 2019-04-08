@@ -10,27 +10,32 @@ if ($this->getType() == 'amxnotif/category_subscribe') {
     $productId = Mage::registry('current_product')->getId();
     $parentId = $this->getParentProductId();
 }
+$hideFeature = true;
 ?>
 <p class="<?php echo $this->getHtmlClass() ?>">
-
-<style>
-        .oos-text{
-            display: flex;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-        .oos-text span{
-            color: #98b3ba;
-            font-weight: 500;
-            font-size: 1.5rem;
-            text-transform: uppercase;
-        }
-    </style>
-    <div class="oos-text">
-        <span>Out of Stock</span>
-    </div>
-    <a href="<?php echo $this->escapeHtml(Mage::helper('amxnotif')->getSignupUrl('stock', $productId, $parentId)) ?>" >
-        <?php echo $this->escapeHtml($this->__($this->getSignupLabel())); ?>
-    </a>
+    <?php if(!$hideFeature):?>
+        <style>
+            .oos-text{
+                display: flex;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            .oos-text span{
+                color: #98b3ba;
+                font-weight: 500;
+                font-size: 1.5rem;
+                text-transform: uppercase;
+            }
+        </style>
+        <div class="oos-text">
+            <span>Out of Stock</span>
+        </div>
+        
+    <?php else: ?>
+        <a href="<?php echo $this->escapeHtml(Mage::helper('amxnotif')->getSignupUrl('stock', $productId, $parentId)) ?>" >
+            <?php echo $this->escapeHtml($this->__($this->getSignupLabel())); ?>
+        </a>
+    <?php endif; ?>
+    
 </p>
