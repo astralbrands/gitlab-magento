@@ -80,6 +80,7 @@ $productUrl = '';
                                     <div class="btns">
                                         <a class="quickview" data-coherent-modal data-modal-name="quickview-php" data-modal-id="<?php echo $_product->getId() ?>"><?php echo $this->__('Quick View')?></a>
                                         <a data-formkey="<?php echo $_wishlistHelper->getFormKey() ?>" class="link-wishlist wishlist <?php if($_bornProductListHelper->inWishlist($_product)) echo 'favorite' ?>" href="<?php echo $_wishlistHelper->getAddUrl($_product) ?>"><?php echo $this->__('Favorite')?></a>
+                                        <a href="<?php echo $this->helper('checkout/cart')->getAddUrl($_product) ?>">Add to Cart</a>
                                     </div>
                                     <?php if ($tagMessage = $this->getTagMessage()): ?>
                                         <div class="custom-tag-msg"><?php echo $tagMessage ?></div>
