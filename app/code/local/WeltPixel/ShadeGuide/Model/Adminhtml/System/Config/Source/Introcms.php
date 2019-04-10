@@ -1,6 +1,6 @@
 <?php
 
-class WeltPixel_ShadeGuide_Model_Adminhtml_System_Config_Source_Introcms
+class WeltPixel__Model_Adminhtml_System_Config_Source_Introcms
 {
     public function toOptionArray()
     {

@@ -1,11 +1,10 @@
 <?php
-$_helper = $this->helper('shadeguide');
-$currentStep = $this->getCurrentStep();
-$currentStepOptions = $this->getStepOptions($currentStep);
-$mediaUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA);
-$placeholderImage = $mediaUrl . 'catalog/product/placeholder/' . $_helper->getPlaceholderImage();
-$currentStepId = $this->getCurrentStepId();
-$disabled = $currentStepId == 1 ? false: true;
+    $_helper = $this->helper('shadeguide');
+    $currentStep = $this->getCurrentStep();
+    $currentStepOptions = $this->getStepOptions($currentStep);
+    $placeholderImage = $mediaUrl . 'catalog/product/placeholder/' . $_helper->getPlaceholderImage();
+    $currentStepId = $this->getCurrentStepId();
+    $disabled = $currentStepId == 1 ? false: true;
 ?>
 <?php  ?>
 <div class="options-wrapper <?php echo $currentStep['template'] ?>" data-attr="<?php echo $currentStep['product_attribute'] ?>">
