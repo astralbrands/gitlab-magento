@@ -394,14 +394,14 @@
                                     right.setAttribute('id', 'product-options-right')
                                     right.setAttribute('class', 'product-options-container')
 
-                                    var rightHoverElement = document.createElement('div')
-                                    rightHoverElement.setAttribute('id', 'right-hover-element')
-                                    right.append(rightHoverElement)
+                                    // var rightHoverElement = document.createElement('div')
+                                    // rightHoverElement.setAttribute('id', 'right-hover-element')
+                                    // right.append(rightHoverElement)
 
                                     // add google analytics event
-                                    rightHoverElement.addEventListener('click', function(e){
-                                        console.log('clicked', e)
-                                    })
+                                    // rightHoverElement.addEventListener('click', function(e){
+                                    //     console.log('clicked', e)
+                                    // })
 
                                     // create find-your-shade-link
                                     var findYourShadeLink = document.createElement('a')
@@ -452,7 +452,7 @@
                                     left.append(findYourShadeLink)
                                     left.appendChild(addToCartButton) //working
 
-                                    rightHoverElement.append(matchByBrand)
+                                    right.append(matchByBrand)
                                     right.append(details)
 
                                     details.append(qtyContainer)
