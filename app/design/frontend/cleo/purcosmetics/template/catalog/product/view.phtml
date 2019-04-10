@@ -341,12 +341,31 @@
                                     
                                 }
 
+                                function shrinkSwatches(swatchContainer){
+                                    var swatches = []
+                                    console.log('swatches output', swatchContainer.getElementsByClassName('swatch-container-row'))
+                                    Array.from(swatchContainer.getElementsByClassName('swatch-container-row')).forEach(
+                                        swatch => {
+                                            swatches.push(swatch)
+                                        }
+                                    )
+                                    console.log('swatches', swatches)
+
+                                    swatches.forEach(swatch => {
+                                        swatch.classList.add('shrunken-swatch')
+                                        var link = swatch.getElementsByClassName('swatch-container-link')[0]
+                                        link.classList.add('shrunken-swatch-link')
+                                    })
+                                }
+
                                 function changeView(){
                                     // get the options swatch
                                     var optionswatch = document.getElementById('optionswatch')
                                     console.log('optionswatch', optionswatch)
 
                                     // duplicateSwatches(optionswatch)
+
+                                    shrinkSwatches(optionswatch)
                                     
                                     // if(!optionswatch)
                                     // get the current container
