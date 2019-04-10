@@ -122,6 +122,14 @@
                                         opacity: 1 !important;
                                     }
 
+                                    #optionswatch{
+                                        opacity: 0 !important;    
+                                    }
+
+                                    #optionswatch.visible{
+                                        opacity: 1 !important;
+                                    }
+
                                     #new-product-options{
                                         display:flex;
                                         margin-bottom: 2rem;
@@ -493,6 +501,7 @@
                                     sizeContainer.appendChild(sizeWrapper)
 
                                     productOptionBottom.classList.add('visible')
+                                    optionswatch.classList.add('visible')
 
                                     
                                 }
