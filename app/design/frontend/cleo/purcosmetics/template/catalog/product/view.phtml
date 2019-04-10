@@ -113,6 +113,15 @@
 
                             
                             <style>
+
+                                    .product-options-bottom{
+                                        opacity: 0 !important;    
+                                    }
+
+                                    .product-options-bottom.visible{
+                                        opacity: 1 !important;
+                                    }
+
                                     #new-product-options{
                                         display:flex;
                                         margin-bottom: 2rem;
@@ -482,6 +491,8 @@
 
                                     sizeContainer.appendChild(sizeLabel)
                                     sizeContainer.appendChild(sizeWrapper)
+
+                                    productOptionBottom.classList.add('visible')
 
                                     
                                 }
