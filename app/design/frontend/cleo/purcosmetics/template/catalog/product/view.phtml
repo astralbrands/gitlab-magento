@@ -325,6 +325,13 @@
                                         line-height: 30px !important;
                                     }
 
+                                    .fixedModal{
+                                        overflow: hidden;
+                                        position: absolute;
+                                        width: 100%;
+                                        height: 100%;
+                                    }
+
                             </style>
                             <!-- include findation script -->
                             <script type="text/javascript" src="//findation.com/javascripts/w-adv-1.js"></script>
@@ -514,19 +521,12 @@
 
                                     Findation.widgetDidOpen = function() {
                                         ga('send', 'event', 'Findation', 'Widget', 'Opened');
-                                        var body = document.getElementsByTagName('body')[0];
-                                        body.style.overflow = 'hidden';
-                                        body.style.position = 'absolute';
-                                        body.style.width = '100%';
-                                        body.style.height = '100%';
+                                        jQuery('body, html').addClass('fixedModal')
                                     }
 
                                     Findation.widgetDidClose = function(){
                                         var body = document.getElementsByTagName('body')[0];
-                                        body.style.overflow = 'initial';
-                                        body.style.position = 'static';
-                                        body.style.width = 'initial';
-                                        body.style.height = 'initial';
+                                        jQuery('body, html').removeClass('fixedModal')
                                         jQuery([document.documentElement, document.body]).animate({
                                             scrollTop: jQuery("#new-product-options").offset().top
                                         }, 0);
