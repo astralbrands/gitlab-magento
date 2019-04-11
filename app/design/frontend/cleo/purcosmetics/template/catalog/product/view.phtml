@@ -522,15 +522,20 @@
 
                                     Findation.widgetDidOpen = function() {
                                         ga('send', 'event', 'Findation', 'Widget', 'Opened');
-                                        jQuery('body, html').addClass('fixedModal')
+                                        var html = document.getElementsByTagName('html')[0];
+                                        if(html.width <= 600){
+                                            jQuery('body, html').addClass('fixedModal')
+                                        }
                                     }
 
                                     Findation.widgetDidClose = function(){
-                                        var body = document.getElementsByTagName('body')[0];
-                                        jQuery('body, html').removeClass('fixedModal')
-                                        jQuery([document.documentElement, document.body]).animate({
-                                            scrollTop: jQuery("#new-product-options").offset().top
-                                        }, 0);
+                                        var html = document.getElementsByTagName('html')[0];
+                                        if(html.width <= 600){
+                                            jQuery('body.fixedModal, html.fixedModal').removeClass('fixedModal')
+                                            jQuery([document.documentElement, document.body]).animate({
+                                                scrollTop: jQuery("#new-product-options").offset().top
+                                            }, 0);
+                                        }
                                     }
 
                                     Findation.onSearchComplete = function(data){
