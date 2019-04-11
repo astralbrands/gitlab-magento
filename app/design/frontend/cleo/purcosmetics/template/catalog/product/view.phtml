@@ -530,8 +530,8 @@
 
                                     Findation.widgetDidClose = function(){
                                         var html = document.getElementsByTagName('html')[0];
+                                        jQuery('body.fixedModal, html.fixedModal').removeClass('fixedModal')
                                         if(html.offsetWidth <= 600){
-                                            jQuery('body.fixedModal, html.fixedModal').removeClass('fixedModal')
                                             jQuery([document.documentElement, document.body]).animate({
                                                 scrollTop: jQuery("#new-product-options").offset().top
                                             }, 0);
