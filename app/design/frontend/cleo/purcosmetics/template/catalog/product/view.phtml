@@ -514,6 +514,19 @@
 
                                     Findation.widgetDidOpen = function() {
                                         ga('send', 'event', 'Findation', 'Widget', 'Opened');
+                                        var body = document.getElementsByTagName('body')[0];
+                                        body.style.overflow = 'hidden';
+                                        body.style.position = 'absolute';
+                                        body.style.width = '100%';
+                                        body.style.height = '100%';
+                                    }
+
+                                    Findation.widgetDidClose = function(){
+                                        var body = document.getElementsByTagName('body')[0];
+                                        body.style.overflow = 'initial';
+                                        body.style.position = 'static';
+                                        body.style.width = 'initial';
+                                        body.style.height = 'initial';
                                     }
 
                                     Findation.onSearchComplete = function(data){
