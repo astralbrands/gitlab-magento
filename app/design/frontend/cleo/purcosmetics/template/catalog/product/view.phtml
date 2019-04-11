@@ -102,8 +102,8 @@
                             <script>
                                 var host = "'.$host.'"
                                 var requestUri = "'.$requestUri.'"
-                                console.log("h", host)
-                                console.log("s", requestUri)
+                                //console.log("h", host)
+                                //console.log("s", requestUri)
                             </script>
                         ';
                     ?>
@@ -338,13 +338,11 @@
 
                                     // get swatches from container
                                     var swatches = []
-                                    console.log('swatches output', swatchContainer.getElementsByClassName('swatch-container-row'))
                                     Array.from(swatchContainer.getElementsByClassName('swatch-container-row')).forEach(
                                         swatch => {
                                             swatches.push(swatch)
                                         }
                                     )
-                                    console.log('swatches', swatches)
 
                                     swatches.forEach(swatch => {
                                         swatch.classList.add('shrunken-swatch')
@@ -364,13 +362,11 @@
 
                                 function shrinkSwatches(swatchContainer){
                                     var swatches = []
-                                    console.log('swatches output', swatchContainer.getElementsByClassName('swatch-container-row'))
                                     Array.from(swatchContainer.getElementsByClassName('swatch-container-row')).forEach(
                                         swatch => {
                                             swatches.push(swatch)
                                         }
                                     )
-                                    console.log('swatches', swatches)
 
                                     swatches.forEach(swatch => {
                                         swatch.classList.add('shrunken-swatch')
@@ -382,7 +378,6 @@
                                 function changeView(){
                                     // get the options swatch
                                     var optionswatch = document.getElementById('optionswatch')
-                                    console.log('optionswatch', optionswatch)
 
                                     // duplicateSwatches(optionswatch)
 
@@ -391,7 +386,6 @@
                                     // if(!optionswatch)
                                     // get the current container
                                     var productOptionBottom = document.getElementsByClassName('product-options-bottom')[0]
-                                    console.log('pobottom', productOptionBottom)
 
                                     // create new container
                                     var newProductOptions = document.createElement('div')
@@ -412,7 +406,6 @@
 
                                         // getAddToCartButton
                                         var addToCartButton = addToCartContainer.childNodes[5]
-                                        console.log('addToCartButton', addToCartButton)
 
                                         // create label container dubbed 'details'
                                         var details = document.createElement('div')
@@ -540,12 +533,10 @@
                                     //do work
                                     changeView()
                                     initWidget();
-                                    console.log('widget initializing')
                                 });
 
                                 function checkIframeLoaded() {
                                 // Get a handle to the iframe element
-                                console.log('running')
                                     var iframe = document.getElementById('findation-button-iframe');
                                     var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
 
@@ -559,17 +550,14 @@
                                         afterLoading();
                                         return;
                                     } 
-                                    console.log('not done')
                                     // If we are here, it is not loaded. Set things up so we check   the status again in 100 milliseconds
                                     window.setTimeout(checkIframeLoaded, 100);
                                 }
 
                             function afterLoading(){
                                 var buttonHeight = document.getElementById('find-your-shade').offsetHeight
-                                console.log('buttonHeight', buttonHeight)
                                 var findationButtonIframe = document.getElementById('findation-button-iframe')
                                 findationButtonIframe.style.height = `${buttonHeight}px`
-                                console.log('reached end of initialization', findationButtonIframe)
                             }
                             </script>
                             
