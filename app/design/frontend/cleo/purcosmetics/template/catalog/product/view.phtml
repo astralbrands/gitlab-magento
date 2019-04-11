@@ -523,14 +523,14 @@
                                     Findation.widgetDidOpen = function() {
                                         ga('send', 'event', 'Findation', 'Widget', 'Opened');
                                         var html = document.getElementsByTagName('html')[0];
-                                        if(html.width <= 600){
+                                        if(html.offsetWidth <= 600){
                                             jQuery('body, html').addClass('fixedModal')
                                         }
                                     }
 
                                     Findation.widgetDidClose = function(){
                                         var html = document.getElementsByTagName('html')[0];
-                                        if(html.width <= 600){
+                                        if(html.offsetWidth <= 600){
                                             jQuery('body.fixedModal, html.fixedModal').removeClass('fixedModal')
                                             jQuery([document.documentElement, document.body]).animate({
                                                 scrollTop: jQuery("#new-product-options").offset().top
