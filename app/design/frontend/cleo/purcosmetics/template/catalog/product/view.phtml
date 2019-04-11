@@ -520,7 +520,17 @@
                                     );
 
                                     Findation.widgetDidOpen = function() {
-                                        ga('send', 'event', 'Findation', 'Opened');
+                                        ga('send', 'event', 'Findation', 'Widget', 'Opened');
+                                    }
+
+                                    Findation.onSearchComplete = function(data){
+                                        var findationIframe = document.getElementById("findation-iframe")
+                                        findationIframe.parent.scrollTo(0,0)
+                                        if(data.matchSuccess){
+                                            ga('send', 'event', 'Findation', 'Successful Recommendation', data.recommendedShade);
+                                        }else{
+                                            ga('send', 'event', 'Findation', 'No Recommendation');
+                                        }
                                     }
 
                                     checkIframeLoaded()
