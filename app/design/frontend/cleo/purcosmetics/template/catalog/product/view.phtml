@@ -107,7 +107,7 @@
                             </script>
                         ';
                     ?>
-                    <?php if($host == 'local.purcosmetics.com' || ($requestUri !== '/test-test11829' || $requestUri !== '/4-in-1-love-your-selfie-longwear-foundation-concealer')):?>
+                    <?php if($host == 'local.purcosmetics.com' || ($requestUri == '/test-test11829' || $requestUri == '/4-in-1-love-your-selfie-longwear-foundation-concealer')):?>
                         <?php if ($_product->isSaleable() && $this->hasOptions()): ?>
                             <?php echo $this->getChildChildHtml('container2', '', true, true); ?>
 
@@ -125,7 +125,7 @@
                                     #splash-media-image-0{
                                         width: 100%;
                                     }
-                                    
+
                                     #optionswatch{
                                         opacity: 0 !important;    
                                     }
