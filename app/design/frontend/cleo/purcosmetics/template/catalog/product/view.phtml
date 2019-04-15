@@ -197,11 +197,14 @@
                                         width: 100% !important;
                                     }
 
-                                    #find-your-shade:hover .fys-button{
-                                        background-color: #000000;
+                                    #find-your-shade{
                                         opacity: 0;
                                         visibility: hidden;
                                         pointer-events: none;
+                                    }
+
+                                    #find-your-shade:hover .fys-button{
+                                        background-color: #000000;
                                     }
 
                                     #find-your-shade:hover .fys-button span{
@@ -496,11 +499,12 @@
 
                                     // left.append(findYourShadeLink)
                                     // swapped with match
+                                    left.append(matchByBrand) //swapped with find your shade
                                     left.appendChild(addToCartButton) //working
-                                    // left.removeElement(addToCartButton) temporarily hidden until launch
+                                    left.removeElement(addToCartButton) //temporarily hidden until launch
 
                                     // right.append(matchByBrand)
-                                    left.append(matchByBrand) //swapped with find your shade
+                                    
                                     right.append(findYourShadeLink)
                                     right.append(details)
 
