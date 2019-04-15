@@ -199,6 +199,9 @@
 
                                     #find-your-shade:hover .fys-button{
                                         background-color: #000000;
+                                        opacity: 0;
+                                        visibility: hidden;
+                                        pointer-events: none;
                                     }
 
                                     #find-your-shade:hover .fys-button span{
@@ -491,10 +494,14 @@
                                     newProductOptions.append(left)
                                     newProductOptions.append(right)
 
-                                    left.append(findYourShadeLink)
+                                    // left.append(findYourShadeLink)
+                                    // swapped with match
                                     left.appendChild(addToCartButton) //working
+                                    // left.removeElement(addToCartButton) temporarily hidden until launch
 
-                                    right.append(matchByBrand)
+                                    // right.append(matchByBrand)
+                                    left.append(matchByBrand) //swapped with find your shade
+                                    right.append(findYourShadeLink)
                                     right.append(details)
 
                                     details.append(qtyContainer)
