@@ -107,7 +107,7 @@
                             </script>
                         ';
                     ?>
-                    <?php if($host == 'local.purcosmetics.com' || $requestUri == '/test-test11829'):?>
+                    <?php if($host == 'local.purcosmetics.com' || ($requestUri !== '/test-test11829' || $requestUri !== '/4-in-1-love-your-selfie-longwear-foundation-concealer')):?>
                         <?php if ($_product->isSaleable() && $this->hasOptions()): ?>
                             <?php echo $this->getChildChildHtml('container2', '', true, true); ?>
 
@@ -506,7 +506,7 @@
 
                                     // right.append(matchByBrand)
                                     
-                                    right.append(findYourShadeLink)
+                                    // right.append(findYourShadeLink)
                                     right.append(details)
 
                                     details.append(qtyContainer)
@@ -619,7 +619,7 @@
                         <?php echo $this->getChildChildHtml('container1', '', true, true); ?>
                     <?php endif; ?>
                     
-                    <?php if (($host !== 'local.purcosmetics.com' && $requestUri !== '/test-test11829') && ($_product->isSaleable() && $this->hasOptions())): ?>
+                    <?php if (($host !== 'local.purcosmetics.com' && ($requestUri !== '/test-test11829' || $requestUri !== '/4-in-1-love-your-selfie-longwear-foundation-concealer')) && ($_product->isSaleable() && $this->hasOptions())): ?>
                         <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
                     <?php endif; ?>
                     
