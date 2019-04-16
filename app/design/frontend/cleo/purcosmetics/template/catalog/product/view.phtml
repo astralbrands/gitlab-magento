@@ -543,7 +543,7 @@
                                     );
 
                                     Findation.widgetDidOpen = function() {
-                                        ga('send', 'event', 'Findation', 'Widget', 'Opened');
+                                        ga('send', 'event', 'Findation', 'Widget Activated', 'Opened');
                                         var html = document.getElementsByTagName('html')[0];
                                         if(html.offsetWidth <= 600){
                                             jQuery('body, html').addClass('fixedModal')
@@ -573,11 +573,16 @@
                                     checkIframeLoaded()
                                 }
 
-                                document.addEventListener("DOMContentLoaded", function(event) { 
-                                    //do work
+                                // document.addEventListener("DOMContentLoaded", function(event) { 
+                                //     //do work
+                                //     changeView()
+                                //     initWidget();
+                                // });
+
+                                window.addEventListener('load', function() {
                                     changeView()
                                     initWidget();
-                                });
+                                }, false);
 
                                 function checkIframeLoaded() {
                                 // Get a handle to the iframe element
