@@ -45,3 +45,43 @@ umask(0);
 $mageRunCode = isset($_SERVER['MAGE_RUN_CODE']) ? $_SERVER['MAGE_RUN_CODE'] : '';
 $mageRunType = isset($_SERVER['MAGE_RUN_TYPE']) ? $_SERVER['MAGE_RUN_TYPE'] : 'store';
 Mage::run($mageRunCode, $mageRunType);
+?>
+<script>
+    window.addEventListener('load', function() {
+        var allAnchors = document.getElementsByTagName('a')
+
+        // console.log('all anchors', allAnchors)
+        try{
+            allAnchors.forEach(anchor => {
+                const href = anchor.href;
+                console.log('anchor href', href)
+            })
+
+            for (let i = 0; i < arr_allAnchors.length; i++) {
+            //     const originalElement = allAnchors[i]
+            //     const element = arr_allAnchors[i];
+            //     console.log('originalElement', originalElement)
+            //     console.log('OE href', originalElement.href)
+            }
+            
+            // var arr_allAnchors = [...allAnchors]
+            // for (let i = 0; i < arr_allAnchors.length; i++) {
+            //     const originalElement = allAnchors[i]
+            //     const element = arr_allAnchors[i];
+            //     console.log('originalElement', originalElement)
+            //     console.log('OE href', originalElement.href)
+            // }
+            // arr_allAnchors.forEach(
+            //     anchor => {
+            //         console.log('anchor href', anchor.href)
+            //         if(anchor.href && anchor.href.includes('www.cosmedix.com')){
+                        
+            //         }
+            //     }
+            // )
+        }catch(e){
+            console.log('not supported: ', e)
+        }
+    }, false);
+</script>
+<?php
