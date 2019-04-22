@@ -28,6 +28,7 @@
     $appTabsEnabled = '';
     $requestUri = $_SERVER["REQUEST_URI"];
     $host = $_SERVER['HTTP_HOST'];
+    $findationUrls = array('/4-in-1-love-your-selfie-longwear-foundation-concealer', '/4-in-1-love-your-selfie-longwear-foundation-concealer-mini');
     if ($ajaxAddToCartEnabled) :
         $_productAction = $this->getSubmitUrl($_product, array());
     else :
@@ -107,7 +108,7 @@
                             </script>
                         ';
                     ?>
-                    <?php if($host == 'local.purcosmetics.com' || ($requestUri == '/test-test11829' || $requestUri == '/4-in-1-love-your-selfie-longwear-foundation-concealer')):?>
+                    <?php if($host == 'local.purcosmetics.com' || ($requestUri == '/test-test11829' || inArray($findationUrls, $requestUri) )):?>
                         <?php if ($_product->isSaleable() && $this->hasOptions()): ?>
                             <?php echo $this->getChildChildHtml('container2', '', true, true); ?>
 
@@ -634,7 +635,7 @@
                         <?php echo $this->getChildChildHtml('container1', '', true, true); ?>
                     <?php endif; ?>
                     
-                    <?php if (($host !== 'local.purcosmetics.com' && ($requestUri !== '/test-test11829' || $requestUri !== '/4-in-1-love-your-selfie-longwear-foundation-concealer')) && ($_product->isSaleable() && $this->hasOptions())): ?>
+                    <?php if (($host !== 'local.purcosmetics.com' && ($requestUri !== '/test-test11829' || inArray($findationUrls, $requestUri) )) && ($_product->isSaleable() && $this->hasOptions())): ?>
                         <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
                     <?php endif; ?>
                     

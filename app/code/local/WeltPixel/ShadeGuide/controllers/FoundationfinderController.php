@@ -40,6 +40,10 @@ class WeltPixel_ShadeGuide_FoundationfinderController extends Mage_Core_Controll
         // apply filters
         $attribute = array();
         if (isset($params['filter']) && !empty($params['filter'])) {
+            echo "<script>
+                var pf = ".$params['filter'].";
+                console.log('params[filter]', pf);
+            </script>";
             if (count($params['filter'])) {
                 foreach ($params['filter'] as $attrCode => $attrValue) {
                     if ($attrCode == 'isAjax') continue;
