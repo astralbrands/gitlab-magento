@@ -108,7 +108,7 @@
                             </script>
                         ';
                     ?>
-                    <?php if($host == 'local.purcosmetics.com' || ($requestUri == '/test-test11829' || inArray($findationUrls, $requestUri) )):?>
+                    <?php if($host == 'local.purcosmetics.com' || ($requestUri == '/test-test11829' || in_array($requestUri, $findationUrls) )):?>
                         <?php if ($_product->isSaleable() && $this->hasOptions()): ?>
                             <?php echo $this->getChildChildHtml('container2', '', true, true); ?>
 
@@ -129,10 +129,6 @@
 
                                     #optionswatch{
                                         opacity: 0 !important;    
-                                    }
-
-                                    #product-options-left .actions{
-                                        display: none !important;
                                     }
 
                                     #optionswatch.visible{
@@ -205,6 +201,10 @@
                                         height: 50px !important;
                                         width: 100% !important;
                                     }
+                                    
+                                    #product-options-left .actions{
+                                        margin-top: 1rem !important;
+                                    }
 
                                     #find-your-shade{
                                         opacity: 0;
@@ -276,6 +276,7 @@
                                             bottom: 0;
                                             width: 100%; 
                                             z-index: 999999;
+                                            margin-top: 0 !important;
                                         }
 
                                         #product-options-left .actions button{
@@ -635,7 +636,7 @@
                         <?php echo $this->getChildChildHtml('container1', '', true, true); ?>
                     <?php endif; ?>
                     
-                    <?php if (($host !== 'local.purcosmetics.com' && ($requestUri !== '/test-test11829' || inArray($findationUrls, $requestUri) )) && ($_product->isSaleable() && $this->hasOptions())): ?>
+                    <?php if (($host !== 'local.purcosmetics.com' && ($requestUri !== '/test-test11829' || in_array($requestUri, $findationUrls))) && ($_product->isSaleable() && $this->hasOptions())): ?>
                         <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
                     <?php endif; ?>
                     
