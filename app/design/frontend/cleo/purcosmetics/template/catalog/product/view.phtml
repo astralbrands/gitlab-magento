@@ -366,21 +366,25 @@
                                     // get swatches from container
                                     var swatches = []
                                     Array.from(swatchContainer.getElementsByClassName('swatch-container-row')).forEach(
-                                        swatch => {
+                                        function (swatch) {
                                             swatches.push(swatch)
                                         }
                                     )
 
-                                    swatches.forEach(swatch => {
-                                        swatch.classList.add('shrunken-swatch')
-                                        var link = swatch.getElementsByClassName('swatch-container-link')[0]
-                                        link.classList.add('shrunken-swatch-link')
-                                    })
+                                    swatches.forEach(
+                                        function(swatch){
+                                            swatch.classList.add('shrunken-swatch')
+                                            var link = swatch.getElementsByClassName('swatch-container-link')[0]
+                                            link.classList.add('shrunken-swatch-link')
+                                        }
+                                    )
                                     
                                     for(var i = 0; i < 16; i++){
-                                        swatches.forEach(swatch => {
-                                            swatchContainer.appendChild(swatch.cloneNode(true))
-                                        })
+                                        swatches.forEach(
+                                            function(swatch) {
+                                                swatchContainer.appendChild(swatch.cloneNode(true))
+                                            }
+                                        )
                                     }
 
                                     
@@ -390,16 +394,18 @@
                                 function shrinkSwatches(swatchContainer){
                                     var swatches = []
                                     Array.from(swatchContainer.getElementsByClassName('swatch-container-row')).forEach(
-                                        swatch => {
+                                        function(swatch){
                                             swatches.push(swatch)
                                         }
                                     )
 
-                                    swatches.forEach(swatch => {
-                                        swatch.classList.add('shrunken-swatch')
-                                        var link = swatch.getElementsByClassName('swatch-container-link')[0]
-                                        link.classList.add('shrunken-swatch-link')
-                                    })
+                                    swatches.forEach(
+                                        function(swatch){
+                                            swatch.classList.add('shrunken-swatch')
+                                            var link = swatch.getElementsByClassName('swatch-container-link')[0]
+                                            link.classList.add('shrunken-swatch-link')
+                                        }
+                                    )
                                 }
 
                                 function changeView(){
@@ -586,23 +592,53 @@
                                     initWidget();
                                 }, false);
 
+                                // Opera 8.0+
+                                //var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+
+                                // Firefox 1.0+
+                                //var isFirefox = typeof InstallTrigger !== 'undefined';
+
+                                // Safari 3.0+ "[object HTMLElementConstructor]" 
+                                var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
+
+                                // Internet Explorer 6-11
+                                //var isIE = /*@cc_on!@*/false || !!document.documentMode;
+
+                                // Edge 20+
+                                //var isEdge = !isIE && !!window.StyleMedia;
+
+                                // Chrome 1 - 71
+                                var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
+
+                                // Blink engine detection
+                                //var isBlink = (isChrome || isOpera) && !!window.CSS;
+
                                 function checkIframeLoaded() {
                                 // Get a handle to the iframe element
-                                    var iframe = document.getElementById('findation-button-iframe');
-                                    var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                                    if(isSafari || isChrome){
+                                        var iframe = document.getElementById('findation-button-iframe');
+                                        var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
 
-                                    // Check if loading is complete
-                                    if (  iframeDoc.readyState  == 'complete' ) {
-                                        //iframe.contentWindow.alert("Hello");
-                                        iframe.contentWindow.onload = function(){
-                                            alert("I am loaded");
-                                        };
-                                        // The loading is complete, call the function we want executed once the iframe is loaded
-                                        afterLoading();
-                                        return;
-                                    } 
-                                    // If we are here, it is not loaded. Set things up so we check   the status again in 100 milliseconds
-                                    window.setTimeout(checkIframeLoaded, 100);
+                                        // Check if loading is complete
+                                        if (  iframeDoc.readyState  == 'complete' ) {
+                                            //iframe.contentWindow.alert("Hello");
+                                            iframe.contentWindow.onload = function(){
+                                                alert("I am loaded");
+                                            };
+                                            // The loading is complete, call the function we want executed once the iframe is loaded
+                                            afterLoading();
+                                            return;
+                                        } 
+                                        // If we are here, it is not loaded. Set things up so we check   the status again in 100 milliseconds
+                                        window.setTimeout(checkIframeLoaded, 100);
+                                    }else{
+                                        try{
+                                            afterLoading()
+                                        }catch(e){
+                                            window.setTimeout(checkIframeLoaded, 100);
+                                        }
+                                    }
+                                    
                                 }
 
                             function afterLoading(){
