@@ -15,6 +15,7 @@ var shadeGuide = (function ($) {
             that.setMinHeight(that, settings.wHeight);
 
             $('body').on('click', '.option-select, .checkbox-select', function() {
+                console.log('elem clicked', this)
                 that.checkInput(that, settings, this);
             });
 
@@ -42,18 +43,6 @@ var shadeGuide = (function ($) {
                 currentStep = elObj.closest('.shadeguide-step'),
                 prevStep = currentStep.prev('.shadeguide-step');
 
-                // added to fix shadefinder skipping filters
-                var removeStoredStep = function(){
-                    var step = prevStep[0].dataset.attr
-                    var className = 'hiddenOption ' + step
-                    var previousElement = document.getElementsByClassName(className)[0]
-                    previousElement.parentNode.removeChild(previousElement)
-                }
-                if(prevStep[0].dataset.attr){
-                    removeStoredStep()
-                }
-                // END added to fix shadefinder skipping filters
-
             if (prevStep.length) {
                 /** un-select current options */
                 currentStep.find('input:checked').each(function() {
@@ -77,28 +66,8 @@ var shadeGuide = (function ($) {
             var elObj = $(el),
                 currentStep = elObj.closest('.shadeguide-step'),
                 nextStep = currentStep.next('.shadeguide-step');
-                
-                // added to fix shadefinder skipping filters
-                var storeStep = function(){
-                    var step = currentStep[0].dataset.attr
-                    var assigned_class = elObj[0].classList[2]
-
-                    if(!assigned_class || assigned_class == undefined){
-                        assigned_class = 'nopref'
-                    }
-                    
-                    var loggedSelection = document.createElement('div')
-                    loggedSelection.className = 'hiddenOption ' + step + ' ' + assigned_class
-                    loggedSelection.style.display = 'none';
-                    document.body.appendChild(loggedSelection)
-                }
-                if(currentStep[0].dataset.attr){
-                    storeStep()
-                }
-                // END added to fix shadefinder skipping filters
 
             if (currentStep.attr('id') == 'start' || elObj.hasClass('skip')) {
-                console.log('has start')
                 $('#lightbox-loader, .shadeguide-overlay').show();
                 /** un-select current options */
                 currentStep.find('input:checked').each(function() {
@@ -125,7 +94,6 @@ var shadeGuide = (function ($) {
                     }
                 }, delayTime);
             } else {
-                console.log('doesn\'t have start')
                 var count = 0;
                 var currentParams = {};
                 currentStep.find('input').each(function() {
@@ -233,19 +201,8 @@ var shadeGuide = (function ($) {
                     params[attr][count] = $(this).val();
                     count++;
                 });
-                
+                console.log('params', params)
             });
-
-            // added to fix shadefinder skipping filters
-            var newParams = document.getElementsByClassName('hiddenOption');
-            $(newParams).each(function(){
-                var stepName = this.classList[1]
-                var l = 'option-'.length
-                var optionNumber = this.classList[2].substr(l)
-                params[stepName][0] = optionNumber
-            });
-            // END added to fix shadefinder skipping filters
-
             jQuery.ajax({
                 url : collectionUrl,
                 dataType : 'json',
@@ -306,6 +263,7 @@ var shadeGuide = (function ($) {
         },
         removeEl: function(el) {
             var elem = el.split(',');
+            console.log('elem', elem)
             for (var i = 0; i < elem.length; i++) {
                 if ($($.trim(elem[i])).length) {
                     var obj = $($.trim(elem[i]));

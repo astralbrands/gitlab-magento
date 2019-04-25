@@ -24,7 +24,7 @@ class Qualityunit_Pap_Block_Clicktracking extends Mage_Core_Block_Text {
             $this->addText('<!-- Post Affiliate Pro plugin has not been configured yet! -->');
         }
         else {
-            /*$this->addText('
+            $this->addText('
                 <!-- Post Affiliate Pro integration snippet -->
                 <script type="text/javascript">
                   document.write(unescape("%3Cscript id=\'pap_x2s6df8d\' src=\'" + (("https:" == document.location.protocol) ? "https://" : "http://") +
@@ -37,7 +37,7 @@ class Qualityunit_Pap_Block_Clicktracking extends Mage_Core_Block_Text {
                 } catch (err) { }
                 </script>
                 <!-- /Post Affiliate Pro integration snippet -->
-            ');*/
+            ');
         }
 
         return parent::_toHtml();
