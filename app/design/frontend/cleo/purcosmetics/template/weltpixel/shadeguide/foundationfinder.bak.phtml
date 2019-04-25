@@ -60,7 +60,7 @@
                         </p>
                     <?php endif; ?>
 
-                    <?php if ($step['multiselect']): //&& $stepId != count($steps)): ?>
+                    <?php if ($step['multiselect'] && $stepId != count($steps)): ?>
                         <p class="next-step center" data-action="#step-<?php echo $stepId + 1; ?>">
                             <?php echo $this->__('Next') ?>
                             <i class="icon icon-angle-right"></i>

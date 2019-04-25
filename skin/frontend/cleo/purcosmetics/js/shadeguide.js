@@ -240,9 +240,11 @@ var shadeGuide = (function ($) {
             var newParams = document.getElementsByClassName('hiddenOption');
             $(newParams).each(function(){
                 var stepName = this.classList[1]
-                var l = 'option-'.length
-                var optionNumber = this.classList[2].substr(l)
-                params[stepName][0] = optionNumber
+                if(stepName != 'form'){
+                    var l = 'option-'.length
+                    var optionNumber = this.classList[2].substr(l)
+                    params[stepName][0] = optionNumber
+                }
             });
             // END added to fix shadefinder skipping filters
 
