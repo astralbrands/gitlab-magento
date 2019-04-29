@@ -38,7 +38,7 @@ $disabled = $currentStepId == 1 ? false: true;
                         </label>
                     </div>
                     <div class="option-select option-image option-<?php echo $option['value']; ?> <?php echo $disabled ? 'disabled' : '' ?>">
-                        <img src="<?php echo $optionImageSrc; ?>" alt="<?php echo $option['label']; ?>" title="<?php echo $option['label']; ?>" />
+                        <img src="<?php echo $optionImageSrc ?>" alt="<?php echo $option['label']; ?>" title="<?php echo $option['label']; ?>" />
                     </div>
 
                     <?php $cmsIdentifier = $_helper->convertOptionLabel($option['label']); ?>

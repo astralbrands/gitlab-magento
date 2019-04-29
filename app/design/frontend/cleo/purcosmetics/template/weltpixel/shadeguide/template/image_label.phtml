@@ -7,8 +7,11 @@ $mediaUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA);
 $placeholderImage = $mediaUrl . 'catalog/product/placeholder/' . $_helper->getPlaceholderImage();
 $disabled = $currentStepId == 1 ? false: true;
 ?>
-<?php  ?>
 <div class="options-wrapper <?php echo $currentStep['template'] ?>" data-attr="<?php echo $currentStep['product_attribute'] ?>">
+<?php /*echo "<script>
+    var currentStep=".$currentStep['template'].";
+    console.log('currentStep, currentStep);
+</script>";*/?>
     <?php $optionSelect = $currentStep['multiselect'] ? 'checkbox-select' : 'option-select'; ?>
     <?php foreach ($currentStepOptions as $option): ?>
         <?php $optionImageSrc = $this->getOptionImage($option['value']); ?>

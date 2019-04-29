@@ -21,28 +21,32 @@
                     </div>
                 <?php endif; ?>
                 <div class="step-wrapper">
-                    <h2 class="w step-title"><?php echo $step['step_title'] ?></h2>
-                    <div class="message center">
+                    <div class="step-text-content">
+                        <h2 class="w step-title"><?php echo $step['step_title'] ?></h2>
                         <?php if ($step['multiselect']): ?>
-                            <?php echo $this->__('Multiple select is allowed') ?>
+                            <div class="message center">
+                                <?php echo $this->__('Multiple select is allowed') ?>
+                            </div>
+                        <?php endif; ?>
+                        <?php $cmsBlockTop = $_helper->getAdditionalCmsBlock($step, 'top'); ?>
+                        <?php if ($cmsBlockTop): ?>
+                            <div class="w additional-cms cms-top">
+                                <?php echo $cmsBlockTop; ?>
+                            </div>
                         <?php endif; ?>
                     </div>
-                    <?php $cmsBlockTop = $_helper->getAdditionalCmsBlock($step, 'top'); ?>
-                    <?php if ($cmsBlockTop): ?>
-                        <div class="w additional-cms cms-top">
-                            <?php echo $cmsBlockTop; ?>
-                        </div>
-                    <?php endif; ?>
+                    <div class="step-actions-content">
 
-                    <?php $this->setCurrentStep($stepId, $step); ?>
-                    <?php echo $this->getChildHtml($step['template'], false); ?>
+                        <?php $this->setCurrentStep($stepId, $step); ?>
+                        <?php echo $this->getChildHtml($step['template'], false); ?>
 
-                    <?php $cmsBlockBottom = $_helper->getAdditionalCmsBlock($step, 'bottom'); ?>
-                    <?php if ($cmsBlockBottom): ?>
-                        <div class="w additional-cms cms-bottom">
-                            <?php echo $cmsBlockBottom; ?>
-                        </div>
-                    <?php endif; ?>
+                        <?php $cmsBlockBottom = $_helper->getAdditionalCmsBlock($step, 'bottom'); ?>
+                        <?php if ($cmsBlockBottom): ?>
+                            <div class="w additional-cms cms-bottom">
+                                <?php echo $cmsBlockBottom; ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
                 </div>
                 <div class="w actions">
                     <?php if ($stepId > 1): ?>
@@ -72,21 +76,22 @@
 
         <div id="results" class="shadeguide-step">
             <div class="w step-wrapper">
-                <h2 class="step-title"><?php echo $this->__('Meet your Match.') ?></h2>
-                <p class="center"><?php echo $this->__('Too Many Options?') ?></p>
-                <div class="actions">
-                    <p class="start-over center" data-action="#step-<?php echo $stepId + 1; ?>">
-                        <?php echo $this->__('Start Over') ?>
-                        <i class="icon icon-angle-right"></i>
-                    </p>
-                </div>
+                <h2 class="step-title"><?php echo $this->__('Meet your Match!') ?></h2>
+                <p class="center"><?php echo $this->__('Finding the PÜR-fect foundation is the first step in any makeup regimen! Here are our recommendations for you') ?></p>
 
                 <div id="product-results" class="products-grid product-results catalog-category-view">
                     Filtered products collection goes here...
                 </div>
+
+                <div class="actions">
+                    <p class="start-over center" data-action="#step-<?php echo $stepId + 1; ?>">
+                    <i class="icon icon-angle-left"></i>    
+                    <?php echo $this->__('Start Over') ?>
+                    </p>
+                </div>
             </div>
         </div>
-
+        <div class="background-image-block"></div>
     </div>
 </div>
 

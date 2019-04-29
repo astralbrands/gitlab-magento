@@ -65,10 +65,12 @@ var shadeGuide = (function ($) {
                 /** show and scroll to previous step */
                 setTimeout(function() {
                     currentStep.css('visibility', 'hidden');
+                    currentStep.css('display', 'none');
                 }, 750);
 
                 prevStep.show('fast', function() {
                     prevStep.css('visibility', 'visible');
+                    prevStep.css('display', 'flex')
                     that.scrollTo(that, el, prevStep, currentStep, 1000, -30);
                 });
             }
@@ -120,6 +122,7 @@ var shadeGuide = (function ($) {
                         /** show and scroll to next step */
                         nextStep.show('fast', function() {
                             nextStep.css('visibility', 'visible');
+                            nextStep.css('display', 'flex')
                             that.scrollTo(that, el, nextStep, currentStep, 1000, -30);
                         });
                     }
@@ -145,6 +148,7 @@ var shadeGuide = (function ($) {
                             nextStep.show('fast', function() {
                                 /** show next step */
                                 nextStep.css('visibility', 'visible');/** scroll to next step */
+                                nextStep.css('display', 'flex');
                                 that.scrollTo(that, el, nextStep, currentStep, 1000, -30);
                             });
 
@@ -161,6 +165,7 @@ var shadeGuide = (function ($) {
             if (target.length) {
                 if (target.find('.owl-carousel').length) {
                     $(window).trigger('resize');
+                    target.css('position', 'relative')
                 }
 
                 if (!that.checkSafariBrowser() && !that.checkFirefoxBrowser()) {
@@ -171,6 +176,7 @@ var shadeGuide = (function ($) {
                             setTimeout(function() {
                                 if (!$(el).hasClass('prev-step')) {
                                     current.css('visibility', 'hidden');
+                                    current.css('display', 'none');
                                 }
                                 current.hide();
                                 current.find('.message.error').removeClass('error').text('');
@@ -182,7 +188,9 @@ var shadeGuide = (function ($) {
                 } else {
                     /** for safari and firefox use fade in/out effect */
                     current.fadeOut(500, function() {
+                        current.css('position', 'absolute');
                         target.fadeIn(1000, function() {
+                            target.css('position', 'relative');
                             $('html, body').stop().animate({
                                 scrollTop: target.offset().top + offset
                             }, speed, function() {

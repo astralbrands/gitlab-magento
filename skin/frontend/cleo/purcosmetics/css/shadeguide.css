@@ -9,6 +9,45 @@
     width: 100%;
     height: 100%;
 }
+.shadeguide-steps{
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.shadeguide{
+    width: 100%;
+    overflow: hidden;
+}
+
+.shadeguide .shadeguide-step{
+    min-width: 100%;
+    justify-content: space-between;
+}
+
+.shadeguide-steps .swiper-container.swiper-parent{
+    background: none !important;
+}
+
+.swiper_wrapper .swiper-slide {
+    background: transparent !important;
+    background-image: none !important;
+}
+
+.shadeguide-steps .background-image-block{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://media.astralbrandsmedia.com/skin/frontend/cleo/purcosmetics/images/Desktop-Shade-Finder-Tan-BG-Only.jpg');
+    /* background-position: bottom; */
+    /* height: 100vh; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
 .shadeguide .wp-button,
 .shadeguide .test {
     background: #ffffff !important;
@@ -29,6 +68,7 @@
     overflow: hidden;
     display: none;
     visibility: hidden;
+    flex-direction: column;
 }
 /*.shadeguide .shadeguide-step.image_carousel {*/
 /*display: block;*/
@@ -41,7 +81,7 @@
 /*opacity: 1;*/
 /*}*/
 .shadeguide .shadeguide-step:first-child {
-    display: block;
+    display: flex;
     visibility: visible;
 }
 .shadeguide .background-image {
@@ -54,7 +94,9 @@
     width: 100%;
 }
 .shadeguide .step-wrapper {
-    padding: 80px 20px 40px;
+    padding: 8rem 20px 40px 4rem;
+    width: 50%;
+    margin-right: 50%;
 }
 .shadeguide .step-wrapper .message {
     height: 25px;
@@ -86,13 +128,12 @@
 .shadeguide .step-title {
     font-family: "Gotham A", "Gotham B", sans-serif;
     letter-spacing: 0;
-    color: #000000 !important;
+    color: #ffffff !important;
     margin-bottom: 20px;
-    text-align: center;
+    text-align: left;
     width: 100%;
-}
-.shadeguide .cms-top {
-    padding: 40px 0 0;
+    line-height: 2.2rem;
+    font-weight: 500;
 }
 .shadeguide .cms-bottom {
     padding: 0 0 20px;
@@ -101,11 +142,14 @@
     padding: 20px 0;
     text-align: center;
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 .shadeguide .options-wrapper .fieldset {
     display: inline-block;
     position: relative;
-    padding: 10px;
+    padding: 1rem 2rem;
 }
 .shadeguide .options-wrapper .fieldset .disabled,
 .shadeguide .options-wrapper .fieldset input:disabled {
@@ -115,40 +159,48 @@
 .shadeguide .options-wrapper .fieldset .option-image.disabled {
     opacity: 0.2;
 }
-.shadeguide .options-wrapper .field {
-    padding: 0 20px;
-}
 .shadeguide .options-wrapper .field label,
 .shadeguide .options-wrapper .field input {
     font-family: "Gotham A", "Gotham B", sans-serif;
     font-size: 16px;
-    color: #000000 !important;
+    color: #000000;
     cursor: pointer;
+}
+.shadeguide .options-wrapper .field label{
+    color: #ffffff !important;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 1rem;
 }
 .shadeguide .options-wrapper:not(.owl-carousel) .option-image {
-    margin: 20px auto;
+    /* margin: 20px auto; */
     cursor: pointer;
-    width: 300px;
+    /* width: 300px; */
 }
 .shadeguide .options-wrapper.owl-carousel .owl-item .item {
-    margin: 0 auto;
+    /* margin: 0 auto; */
 }
 .shadeguide .options-wrapper.owl-carousel .owl-item .option-image {
-    margin: 0 auto;
+    /* margin: 0 auto; */
     width: auto;
-    max-width: 300px;
+    /* max-width: 300px; */
 }
 .shadeguide .options-wrapper .option-image.selected {
-    padding: 5px;
-    border: 1px solid #cccccc;
+    /* padding: 5px; */
+    /* border: 1px solid #cccccc; */
 }
 
 .shadeguide .options-wrapper .label.selected {
     font-weight: 600;
 }
 .shadeguide .options-wrapper .option-image img {
-    width: 100%;
+    width: 5rem;
     cursor: pointer;
+    height: 5rem;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 100rem;
+    border: .2rem solid #ffffff;
 }
 .shadeguide .options-wrapper .field-wrapper {
     position: relative;
@@ -166,7 +218,8 @@
     text-align: left;
 }
 .shadeguide .actions {
-    width: 100%;
+    width: 50%;
+    margin-right: 50%;
     text-align: center;
 }
 .shadeguide .prev-step,
@@ -174,13 +227,13 @@
 .shadeguide .skip,
 .shadeguide .start-over {
     font-family: "Gotham A", "Gotham B", sans-serif;
-    color: #000000 !important;
     font-size: 16px;
     display: inline-block;
     letter-spacing: 0;
     cursor: pointer;
     padding: 10px;
     text-align: center;
+    text-transform: uppercase;
 }
 .shadeguide .skip.animated {
     line-height: 28px;
@@ -284,41 +337,380 @@
 .shadeguide .image_carousel .owl-carousel .owl-nav.disabled {
     display: block !important;
 }
-@media only screen and (max-width: 1700px) {
-    .shadeguide .image_carousel .owl-prev,
-    .shadeguide .image_carousel .owl-next {
-        background: rgba(255,255,255, 0.8);
-    }
+
+.shadeguide .options-wrapper .field-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
 }
-@media only screen and (max-width: 768px) {
-    .swiper_wrapper .swiper-slide {
-        background-position: 80% center;
-    }
-    .slider-caption p {
-        display: inherit !important;
-        font-size: 22px !important;
-        margin-top: 20px;
-    }
-    .owl-controls .owl-buttons > .owl-prev {
-        left: -35px;
-        position: relative;
-    }
-    .owl-controls .owl-buttons > .owl-next {
-        right: -35px;
-        position: relative;
-    }
-    .shadeguide .options-wrapper .fieldset {
-        display: block;
-    }
-    .shadeguide .options-wrapper .option-image {
-        max-width: 90%;
-        margin: 20px auto;
-    }
-    .shadeguide.options-wrapper .image_carousel {
-        margin: 20px 0;
-    }
-    .shadeguide .options-wrapper.image_carousel .option-image {
-        max-width: inherit;
-        margin: 0 auto;
-    }
+
+.shadeguide .w.additional-cms.cms-top .center{
+    text-align: left !important;
+    color: #ffffff;
+    line-height: 1.2rem;
 }
+
+.shadeguide .shadeguide-step .w.actions{
+    color: white;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.shadeguide .step-wrapper .message {
+    font-weight: 700;
+    color: white;
+    opacity: .7;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.shadeguide .options-wrapper .option-image.selected img{
+    border: .2rem solid #834a2f;
+}
+
+/* step specific css */
+
+#results .product-results{
+    background-color: #ffffff;
+    margin-top: 3rem;
+    padding: 0 1rem;
+}
+
+#results .step-wrapper{
+    width: 100%;
+    margin-right: initial;
+}
+#results{
+    background-color: #d1ab86;
+}
+
+
+
+
+
+
+
+
+
+
+/* MEDIA QUERIES */
+
+    
+
+
+    /* DESKTOP */
+
+    @media (min-width: 768px) {
+        .shadeguide .field{
+            padding: 0;
+        }
+
+        /* step specific css */
+        #step-3 .options-wrapper .fieldset {
+            padding: 1rem;
+        }
+        /* end step specific css */
+    }
+
+    
+    
+    
+    /* TABLET */
+
+    @media only screen and (max-width: 1700px) {
+        .shadeguide .image_carousel .owl-prev,
+        .shadeguide .image_carousel .owl-next {
+            background: rgba(255,255,255, 0.8);
+        }
+    }
+
+
+
+
+    /* MOBILE */
+
+    @media only screen and (max-width: 768px) {
+        .shadeguide .step-wrapper {
+            padding: 80px 20px 40px;
+        }
+        .shadeguide .w.additional-cms.cms-top .center{
+            text-align: center !important;
+        }
+        .shadeguide .shadeguide-step{
+            height: auto;
+            min-height: 160vw !important;
+            min-height: 90vh !important;
+            max-height: 160vw !important;
+            max-height: 90vh !important;
+            /* display: flex; */
+        }
+        .shadeguide .options-wrapper .field label{
+            font-size: 4vw;
+        }
+        .shadeguide .step-wrapper {
+            width: initial;
+            margin-right: initial;
+        }
+
+        .shadeguide .shadeguide-step .w.actions{
+            width: 100%;
+            margin-right: initial;
+            color: white;
+            font-weight: 500;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: space-around;
+            background-color: rgba(131,74,47, 0.3);
+        }
+
+        .shadeguide .shadeguide-step .w.actions::after{
+            display: none;
+        }
+
+        .row{
+            margin-left: 0px !important;
+            margin-right: 0px !important;
+        }
+
+        .shadeguide-steps .background-image-block{
+            background-image: url('https://media.astralbrandsmedia.com/skin/frontend/cleo/purcosmetics/images/Tan-Shade-Finder-Mobile-BG.jpg');
+            background-position: bottom;
+        }
+
+        .swiper_wrapper .swiper-slide {
+            background-position: 80% center;
+        }
+        .slider-caption p {
+            display: inherit !important;
+            font-size: 22px !important;
+            margin-top: 20px;
+        }
+        .owl-controls .owl-buttons > .owl-prev {
+            left: -35px;
+            position: relative;
+        }
+        .owl-controls .owl-buttons > .owl-next {
+            right: -35px;
+            position: relative;
+        }
+        .shadeguide .options-wrapper .fieldset {
+            display: block;
+        }
+        .shadeguide .options-wrapper .option-image {
+            max-width: fit-content;
+            max-height: fit-content;
+            /* margin: 20px auto; */
+        }
+        .shadeguide.options-wrapper .image_carousel {
+            /* margin: 20px 0; */
+        }
+        .shadeguide .options-wrapper.image_carousel .option-image {
+            max-width: inherit;
+            margin: 0 auto;
+        }
+
+        /* remove margin from bottom of title */
+        .step-wrapper .step-text-content .w.step-title{
+            margin-bottom: 0;
+            font-size: 6vw;
+            line-height: 8vw;
+            text-align: center;
+        }
+
+        .shadeguide .options-wrapper .option-image{
+            margin-bottom: 0.5rem;
+        }
+        .shadeguide .options-wrapper .option-image img {
+            width: 20vw;
+            cursor: pointer;
+            height: 20vw;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 100rem;
+            border: .2rem solid #ffffff;
+        }
+
+        
+
+        
+        .shadeguide .options-wrapper .field {
+            padding: 0;
+        }
+
+        .shadeguide .step-wrapper .message {
+            font-size: .8rem;
+            text-align: center;
+        }
+        .shadeguide .products-grid .item .product-image{
+            width: 100%;
+        }
+
+        .shadeguide .product-results .category-list .toolbar{
+            margin: 0 !important;
+            margin-bottom: 1rem !important;
+        }
+        
+        .shadeguide .product-results .category-list{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .shadeguide .options-wrapper {
+            justify-content: center;
+        }
+
+        
+
+        /* step specific css */
+        #start{
+            text-align: left;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        #start .wp-button{
+            padding: 0.8rem 1.5rem;
+            max-width: fit-content;
+            min-height: fit-content;
+            max-height: fit-content;
+            line-height: initial;
+        }
+
+        #start h2{
+            font-size: 10vw;
+            font-weight: 500;
+        }
+        #start p{
+            font-size: 5vw !important;
+            font-weight: 400;
+            line-height: 7vw;
+        }
+
+        #step-1 .w.additional-cms.cms-top{
+            display: none;
+        }
+        
+        #step-1 .step-wrapper .step-text-content .message.center, #step-2 .step-wrapper .step-text-content .message.center, #step-3 .step-wrapper .step-text-content .message.center{
+            display: none;
+        }
+
+        #step-2 .options-wrapper{
+            justify-content: space-around;
+        }
+
+        #step-3 .options-wrapper .option-image img {
+            width: 15vw;
+            height: 15vw;
+        }
+
+        #step-3 .options-wrapper .field label {
+            font-size: 3vw;
+        }
+
+        #step-3 .options-wrapper .fieldset {
+            padding: 1rem 0.5rem;
+        }
+
+        #results{
+            min-height: fit-content !important;
+            max-height: fit-content !important;
+        }
+        #results .step-wrapper{
+            padding: 0;
+            margin: 0;
+            padding: 2rem 0 0;
+        }
+        #results .step-wrapper h2{
+            font-weight: 500;
+            color: #ffffff !important;
+            margin-top: 3rem;
+        }
+        #results .step-wrapper p{
+            font-size: 4vw;
+            line-height: 6vw;
+            color: #ffffff !important;
+            font-weight: 400;
+            padding: 0 1rem;
+        }
+        #results .product-results img:not(.hover_image){
+            opacity: 0;
+        }
+
+        #results .product-results img.hover_image{
+            opacity: 1 !important;
+        }
+        #results .start-over{
+            margin: 1rem;
+        }
+        #results .start-over i{
+            vertical-align: text-bottom;
+            font-size: 4vw;
+            line-height: 6vw;
+        }
+        #results .products-grid .item img{
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #start .swiper-slide{
+            height: auto !important;
+            min-height: fit-content;
+        }
+
+        #start .swiper_wrapper.full-screen{
+            height: auto;
+            min-height: fit-content;
+        }
+
+        #start .swiper-container.swiper-parent{
+            height: auto;
+        }
+
+        #start .swiper-slide .container{
+            width: 100% !important;
+        }
+
+        #start .slider-caption.slider-caption-left{
+            position: relative;
+            max-width: initial !important;
+        }
+
+        #start{
+            padding: 2rem;
+        }
+        /* end specific step css */
+
+        
+    }
+
+        /* MOBILE LANDSCAPE */
+
+    @media only screen and (max-width: 768px) and (orientation:landscape){
+        .shadeguide .shadeguide-step{
+            min-height: initial !important;
+            min-height: fit-content !important;
+            max-height: initial !important;
+        }
+
+        .shadeguide .options-wrapper {
+            min-height: 50vw !important;
+        }
+
+        
+
+        .shadeguide .background-image-block{
+            background-position: top;
+        }
+    }
+
+        /* OVERRIDES */
+
+    @media screen and (max-width: 991px) and (min-width: 768px){
+        .row{
+            margin-left: 0px !important;
+            margin-right: 0px !important;
+        }
+    }
+/* END MEDIA QUERIES */
