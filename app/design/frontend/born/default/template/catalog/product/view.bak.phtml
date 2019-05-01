@@ -190,7 +190,7 @@ $storeId = Mage::app()->getStore()->getId();
             var quantity = parseInt(quantityDirty);    
             ga('ec:addProduct', {
                 'id': '<?php echo $_product->getSku(); ?>',
-                'name': "<?php echo $_product->getName(); ?>",
+                'name': '<?php echo $_product->getName(); ?>',
                 'category': '<?php echo $cat_string; ?>',
                 'brand': '<?php echo $affiliation; ?>',
                 'price': '<?php echo $_product->getPrice(); ?>',
@@ -310,7 +310,7 @@ $storeId = Mage::app()->getStore()->getId();
 <script type="text/javascript"> 
 var productId = '<?php echo $_product->getId(); ?>';
 var productSku = '<?php echo $_product->getSku(); ?>';
-var productName = "<?php echo $_product->getName(); ?>";
+var productName = '<?php echo $_product->getName(); ?>';
 var productCategory = '<?php echo str_replace('/',' > ',$cat_string); ?>';
 var productPrice = '<?php echo $_product->getPrice(); ?>';
 var productObject = {id:'<?php echo $_product->getSku(); ?>',item_price:'<?php echo $_product->getPrice(); ?>',quantity:1};
@@ -320,7 +320,7 @@ jQuery('.add-to-cart-wrapper').remove();
 }
 ga('ec:addImpression', {            // Provide product details in an impressionFieldObject.
   'id': '<?php echo $_product->getSku(); ?>',                   // Product ID (string).
-  'name': "<?php echo $_product->getName(); ?>", // Product name (string)
+  'name': '<?php echo $_product->getName(); ?>', // Product name (string).
   'brand': '<?php echo $affiliation; ?>',                // Product brand (string).
 });
 ga('ec:setAction', 'detail');
