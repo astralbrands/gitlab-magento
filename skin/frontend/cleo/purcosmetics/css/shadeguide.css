@@ -22,7 +22,7 @@
 
 .shadeguide .shadeguide-step{
     min-width: 100%;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 
 .shadeguide-steps .swiper-container.swiper-parent{
@@ -33,7 +33,10 @@
     background: transparent !important;
     background-image: none !important;
 }
-
+.shadeguide-steps .step-background-image{
+    display: none;
+    opacity: 0;
+}
 .shadeguide-steps .background-image-block{
     position: absolute;
     top: 0;
@@ -354,6 +357,9 @@
     color: white;
     font-weight: 500;
     text-transform: uppercase;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
 }
 
 .shadeguide .step-wrapper .message {
@@ -361,7 +367,7 @@
     color: white;
     opacity: .7;
     font-size: 1rem;
-    text-align: left;
+    text-align: left !important;
 }
 
 .shadeguide .options-wrapper .option-image.selected img{
@@ -404,10 +410,86 @@
         .shadeguide .field{
             padding: 0;
         }
-
+        .shadeguide .shadeguide-step{
+            /* justify-content: space-between; */
+        }
+        .shadeguide .products-grid .item .product-image{
+            width: 100%;
+        }
+        .shadeguide .products-grid li.item{
+            width: 300px;
+        }
+        #page-footer{
+            background-color: #ffffff;
+            position: relative;
+            padding-top: 0 !important;
+            padding-bottom: 40px;
+        }
+        #page-footer #page-footer-section-03{
+            margin-bottom: 0;
+        }
         /* step specific css */
         #step-3 .options-wrapper .fieldset {
             padding: 1rem;
+        }
+        #results .step-wrapper{
+            padding: 0;
+            margin-left: 0;
+            max-width: none;
+            background-color: #ffffff;
+        }
+        #results .content-header{
+            position: fixed;
+            width: 50%;
+            margin-right: 50%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background-image: url('https://media.astralbrandsmedia.com/skin/frontend/cleo/purcosmetics/images/Tan-Shade-Finder-Mobile-BG.jpg');
+            background-position: bottom;
+            background-size: cover;
+            background-repeat: no-repeat;
+            top: 0;
+            padding-top: 6rem;
+        }
+
+        #results .content-header h2{
+            padding: 6rem 6rem 0;
+        }
+
+        #results .content-header .center{
+            margin: 0;
+            text-align: left !important;
+            margin-right: 16vw;
+            padding: 0 6rem;
+            color: #ffffff;
+            font-size: 1.3rem;
+            line-height: 1.8rem;
+        }
+
+        #results #product-results{
+            width: 50%;
+            margin-left: 50%;
+            margin-top: 0;
+            padding-top: 4rem;
+        }
+
+        #results #product-results .product-info .actions{
+            display: flex;
+            margin-right: 0;
+            justify-content: center;
+        }
+        
+        #results .product-results .products-grid{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #results .actions{
+            position: relative;
+            color: white;
+            font-weight: 500;
         }
         /* end step specific css */
     }
@@ -430,8 +512,35 @@
     /* MOBILE */
 
     @media only screen and (max-width: 768px) {
+        .shadeguide-steps .step-background-image{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://media.astralbrandsmedia.com/skin/frontend/cleo/purcosmetics/images/Findation-Popup-Background-Only.jpg');
+            background-position: center;
+            /* height: 100vh; */
+            background-size: cover;
+            background-repeat: no-repeat;
+            z-index: -1;
+        }
+
+        @keyframes step-bg-fadeIn {
+            from{
+                opacity: 0;
+            }
+            to{
+                opacity: 1;
+            }
+        }
+        .shadeguide-steps .step-background-image.visible{
+            display: block;
+            
+            animation: step-bg-fadeIn .4s ease-in-out .4s forwards;
+        }
         .shadeguide .step-wrapper {
-            padding: 80px 20px 40px;
+            padding: 80px 20px 10px;
         }
         .shadeguide .w.additional-cms.cms-top .center{
             text-align: center !important;
@@ -460,7 +569,7 @@
             text-transform: uppercase;
             display: flex;
             justify-content: space-around;
-            background-color: rgba(131,74,47, 0.3);
+            /* background-color: rgba(131,74,47, 0.3); */
         }
 
         .shadeguide .shadeguide-step .w.actions::after{
@@ -495,6 +604,7 @@
         }
         .shadeguide .options-wrapper .fieldset {
             display: block;
+            padding: 1rem 4vw;
         }
         .shadeguide .options-wrapper .option-image {
             max-width: fit-content;
@@ -515,6 +625,15 @@
             font-size: 6vw;
             line-height: 8vw;
             text-align: center;
+        }
+
+        .shadeguide .step-title {
+            text-align: center;
+        }
+
+        .shadeguide .actions {
+            margin-right: initial;
+            width: 100%;
         }
 
         .shadeguide .options-wrapper .option-image{
@@ -539,7 +658,7 @@
 
         .shadeguide .step-wrapper .message {
             font-size: .8rem;
-            text-align: center;
+            text-align: center !important;
         }
         .shadeguide .products-grid .item .product-image{
             width: 100%;
@@ -592,7 +711,7 @@
             display: none;
         }
         
-        #step-1 .step-wrapper .step-text-content .message.center, #step-2 .step-wrapper .step-text-content .message.center, #step-3 .step-wrapper .step-text-content .message.center{
+        #step-1 .step-wrapper .step-text-content .message.center, #step-2 .step-wrapper .step-text-content .message.center{
             display: none;
         }
 
@@ -652,6 +771,9 @@
         #results .products-grid .item img{
             left: 50%;
             transform: translateX(-50%);
+        }
+        #results .actions p{
+            width: calc(100% - 2rem);
         }
 
         #start .swiper-slide{

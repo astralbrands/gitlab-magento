@@ -41,6 +41,7 @@ var shadeGuide = (function ($) {
             var elObj = $(el),
                 currentStep = elObj.closest('.shadeguide-step'),
                 prevStep = currentStep.prev('.shadeguide-step');
+                // if(currentStep != 'start')
 
                 // added to fix shadefinder skipping filters
                 var removeStoredStep = function(){
@@ -79,6 +80,14 @@ var shadeGuide = (function ($) {
             var elObj = $(el),
                 currentStep = elObj.closest('.shadeguide-step'),
                 nextStep = currentStep.next('.shadeguide-step');
+                
+                if(nextStep[0].id != 'results'){
+                    jQuery('.shadeguide-steps .step-background-image:not(.visible)').addClass('visible');
+                }else{
+                    jQuery('.shadeguide-steps').css('background-color', '#d1ab86');
+                    jQuery('.shadeguide-steps .step-background-image.visible').removeClass('visible');
+                    jQuery('.shadeguide-steps .background-image-block').css('display', 'none');
+                }
                 
                 // added to fix shadefinder skipping filters
                 var storeStep = function(){
@@ -248,7 +257,7 @@ var shadeGuide = (function ($) {
             var newParams = document.getElementsByClassName('hiddenOption');
             $(newParams).each(function(){
                 var stepName = this.classList[1]
-                if(stepName != 'form'){
+                if(stepName != 'form' && stepName != 'skin_type'){
                     var l = 'option-'.length
                     var optionNumber = this.classList[2].substr(l)
                     params[stepName][0] = optionNumber
