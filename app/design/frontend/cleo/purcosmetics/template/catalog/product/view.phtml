@@ -227,7 +227,7 @@
                                     }
 
                                     #match-by-brand{
-                                        display: none;
+                                        /* display: none; */
                                         /* position:absolute;
                                         top: 0;
                                         left: 0;
@@ -266,6 +266,10 @@
                                         white-space: nowrap !important;
                                         min-width: fit-content;
                                     }
+                                    
+                                    #match-by-brand-mobile{
+                                        display: none;
+                                    }
 
                                     /* mobile */
 
@@ -277,6 +281,14 @@
                                             width: 100%; 
                                             z-index: 999999;
                                             margin-top: 0 !important;
+                                        }
+
+                                        #match-by-brand{
+                                            display: none;
+                                        }
+
+                                        #match-by-brand-mobile{
+                                            display: initial;
                                         }
 
                                         #product-options-left .actions button{
@@ -353,7 +365,6 @@
 
                             </style>
                             <!-- include findation script -->
-                            <script type="text/javascript" src="//findation.com/javascripts/w-adv-1.js"></script>
                             <script type="text/javascript">
                                 // document.onload = changeView
 
@@ -484,6 +495,7 @@
                                     var findYourShadeText = document.createElement('span')
                                     findYourShadeText.innerHTML = 'FIND YOUR SHADE'
                                     findYourShade.append(findYourShadeText)
+                                    findYourShade.setAttribute('class', 'fys-button')
 
                                     findYourShadeLink.addEventListener('click', function(e){
                                         e.preventDefault()
@@ -495,10 +507,31 @@
                                     // create match-by-brand button
                                     var matchByBrand = document.createElement('button')
                                     matchByBrand.setAttribute('id', 'match-by-brand')
-                                    findYourShade.setAttribute('class', 'fys-button')
+                                    matchByBrand.appendChild(findYourShadeText)
+                                    
+
+                                    var matchByBrandMobile = document.createElement('button')
+                                    matchByBrandMobile.setAttribute('id', 'match-by-brand-mobile')
+                                    matchByBrandMobile.appendChild(findYourShadeText.cloneNode(true))
+
+                                    matchByBrandMobile.addEventListener('click', function(e){
+                                        e.preventDefault()
+                                        window.location.href = 'https://shadefinder.purcosmetics.com';
+                                    });
                                     
                                     matchByBrand.addEventListener('click', function(e){
                                         e.preventDefault()
+                                        var shadefinderIframe = document.createElement('iframe');
+                                        shadefinderIframe.setAttribute('id', 'shadefinder-iframe')
+                                        shadefinderIframe.setAttribute('src', 'https://shadefinder.purcosmetics.com');
+                                        shadefinderIframe.setAttribute('height', '100%');
+                                        shadefinderIframe.setAttribute('width', '100%');
+                                        shadefinderIframe.style.position = 'fixed';
+                                        shadefinderIframe.style.top = '0';
+                                        shadefinderIframe.style.left = '0';
+                                        shadefinderIframe.style['z-index'] = '99999999';
+                                        jQuery('body').append(shadefinderIframe);
+
                                         //var findationButtonIframe = document.getElementById('findation-button-iframe').contentWindow
                                         //console.log('findationButtonIframe', findationButtonIframe)
                                     })
@@ -518,6 +551,7 @@
                                     // left.append(findYourShadeLink)
                                     // swapped with match
                                     left.append(matchByBrand) //swapped with find your shade
+                                    left.append(matchByBrandMobile)
                                     // jQuery('body').remove('.add-to-cart')
                                     left.appendChild(addToCartButton) //working
                                     // left.remove(addToCartButton) //temporarily hidden until launch
@@ -589,7 +623,9 @@
 
                                 window.addEventListener('load', function() {
                                     changeView()
-                                    initWidget();
+                                    afterLoading()
+                                    document.domain = 'purcosmetics.com'
+                                    // initWidget();
                                 }, false);
 
                                 // Opera 8.0+
@@ -642,9 +678,6 @@
                                 }
 
                             function afterLoading(){
-                                var buttonHeight = 50//document.getElementById('find-your-shade').offsetHeight
-                                var findationButtonIframe = document.getElementById('findation-button-iframe')
-                                findationButtonIframe.style.height = `${buttonHeight}px`
                                 document.getElementsByClassName('product-options-bottom')[0].classList.add('visible')
                                 document.getElementById('optionswatch').classList.add('visible')
                             }
